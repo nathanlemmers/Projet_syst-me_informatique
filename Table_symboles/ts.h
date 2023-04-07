@@ -23,3 +23,13 @@ int isInit(char* nom) ;
 void delVariable(int profondeur) ;
 
 int findOffset(char* name) ;
+
+int initialiser(char* name) ;
+
+void printTable() ;
+
+void delTemporaire() ;
+
+void  addTemporaire() ;
+
+int lastOffset() ;

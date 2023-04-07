@@ -46,14 +46,19 @@ void addVariable(char* n, int i,int type, int profondeur) {
 }
 
 void delVariable(int profondeur) {
+    int i = 0 ;
     if (p->contenu.profondeur>profondeur) {
         p = p->suivant ;
+        i ++ ;
     }
     pile* t = p ;
     while(p->suivant!=NULL) {
         pile* s = p->suivant ;
+        s->contenu.offset = s->contenu.offset - i ;
         if (s->contenu.profondeur>profondeur) {
             p->suivant = s->suivant ;
+            free(s) ;
+            i ++ ;
         }
         else {
             p = p->suivant ;
@@ -80,4 +85,66 @@ int findOffset(char* name) {
     return -1 ;
 }
 
+//Renvoie 1 si ça a fonctionné, -1 sinon
+int initialiser(char* name) {
+    if (isInit(name)==0) {
+        if(p->contenu.nom==name) {
+            p->contenu.init = 1 ;
+            return 1 ;
+        }
+        pile *t = p ;
+        while(p->suivant!= NULL) {
+            if(p->suivant->contenu.nom == name) {
+                p->suivant->contenu.init = 1 ;
+                p = t ;
+                return 1 ;
+            }
+            p = p->suivant ;
+        }
+        p = t ;
+        return -1 ;
+    } else {
+        return 1 ;
+    }
+    
+}
 
+void printTable() {
+    pile* t= p ;
+    if(t!=NULL) {
+        printf("nom : %s ; init : %i ; profondeur : %i ; offset : %i \n",t->contenu.nom, t->contenu.init, t->contenu.profondeur, t->contenu.offset) ;
+        while(t->suivant!=NULL) {
+            t = t->suivant ;
+            printf("nom : %s ; init : %i ; profondeur : %i ; offset : %i \n",t->contenu.nom, t->contenu.init, t->contenu.profondeur, t->contenu.offset) ;
+        }
+    }
+}
+
+
+void delTemporaire() {
+    pile *t = p  ;
+    if(t->suivant == NULL) {
+        p = NULL ;
+    } 
+    else {
+        while(t->suivant->suivant!=NULL) {
+            t = t->suivant ;
+        }
+        t->suivant = NULL ;  
+    }
+}
+
+
+void addTemporaire() {
+    addVariable("", 1, 0, 0) ;
+}
+
+int lastOffset() {
+    pile *t = p  ;
+    int i = 0 ;
+    while(t->suivant!=NULL) {
+        i ++;
+        t = t->suivant ;
+    }  
+    return i ;
+}

@@ -1,18 +1,21 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include "../Table_symboles.ts.h"
 %}
 
 %code provides {
   int yylex (void);
   void yyerror (const char *);
+  int profondeur = 0 ; ;
 }
 
 %union { char *s; }
 
 %token <s> tID tNB ;
 %token tIF  tELSE tWHILE tPRINT tRETURN tINT tVOID tCOMMA tSEMI tRPAR tLPAR tLBRACE tRBRACE tNOT tOR tAND tASSIGN tLE tGE tEQ tNE tGT tLT tDIV tMUL tSUB tADD tERROR
-
+%left tADD tSUB
+%left tMUL tDIV
 %%
 
 totals : total
@@ -32,7 +35,7 @@ arguments : argument
     |tVOID
 ;
 
-argument : tINT tID
+argument : tINT tID {addVariable($2, 0, 0, 0) ;}
 ;
 
 
@@ -52,15 +55,15 @@ Sicomplet : si
     |si sinon 
 ;
 
-tandis : tWHILE tLPAR condition tRPAR tLBRACE structure tRBRACE
+tandis : tWHILE tLPAR condition tRPAR tLBRACE {profondeur++ ;} structure tRBRACE {profondeur-- ; delVariable(profondeur)  ;}
 ;
 
 
-sinon : tELSE tLBRACE structure tRBRACE
+sinon : tELSE tLBRACE {profondeur++ ;} structure tRBRACE {profondeur-- ; delVariable(profondeur)  ;}
 ;
 
 si : 
-    tIF tLPAR condition tRPAR tLBRACE structure tRBRACE
+    tIF tLPAR condition tRPAR tLBRACE {profondeur++ ;} structure tRBRACE {profondeur-- ; delVariable(profondeur)  ;}
 ;
 
 condition : variable comparateur variable 
@@ -68,22 +71,22 @@ condition : variable comparateur variable
     |tNOT variable
 ;
 
-action : newVariable tSEMI {printf("Int declaration\n") ;}
+action : newVariable tSEMI {printf("Int declaration\n") ;} 
     |assignation  tSEMI {printf("Assignment\n") ;}
     |afficher tSEMI    {printf("Print\n") ;}
 ;
 
 
-newVariable : tINT tID 
-    |tINT valeur tASSIGN calculs
+newVariable : tINT tID {addVariable($2, 1, 0, profondeur) ;}
+    |tINT valeur tASSIGN calcul
     |tINT valeur tASSIGN variable
 ;
 
-valeur : tID
-    |valeur tCOMMA tID
+valeur : tID {addVariable($1, 1, 0, profondeur) ;}
+    |valeur tCOMMA tID {addVariable($3, 1, 0, profondeur) ;}
 
-assignation : tID tASSIGN variable 
-    |tID tASSIGN calculs
+assignation : tID tASSIGN variable {initialiser($1) ;}
+    |tID tASSIGN calcul    {initialiser($1) ;}
 ;
 
 afficher :
@@ -108,18 +111,25 @@ comparateur : tOR    {printf("comparateur\n") ;}
     |tLT    {printf("comparateur\n") ;}
 ;
 
-calculs : calcul variable 
-    |calculs operateur variable ;
 
-calcul :
-    variable operateur ;
+//Faire même struct pour NB, voir ensuite
+calcul : tID {int adrs = findOffset($1) ;
+            addTemporaire() ;
+            int adrsTempo = lastOffset() ;
+            printf("COP %d, %d\n", adrs, adrsTempo)}
+    |tNB
+    |calcul tDIV calcul
+    |calcul tMUL calcul 
+    |calcul tSUB calcul
+    |calcul tADD calcul
+; 
 
-operateur :
+/*operateur :
     tDIV  {printf("DIV\n") ;}
     |tMUL {printf("MUL\n") ;}
     |tSUB {printf("SUB\n") ;}
     |tADD {printf("ADD\n") ;}
-;
+;*/
 
 fonction : tID tLPAR agrvs tRPAR ;
 
@@ -127,7 +137,7 @@ agrvs : agrv
     |agrvs tCOMMA agrv
 ;
 
-agrv : calculs
+agrv : calcul
     |variable
 ;
 
