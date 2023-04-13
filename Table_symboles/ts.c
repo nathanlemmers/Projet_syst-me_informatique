@@ -1,18 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ts.h"
+#include <string.h>
 
 //Renvoie 0 si PAS initialisé, 1 sinon
 int isInit(char* name) {
     pile *t = p ;
-    if(p->contenu.nom==name) {
+    if(strcmp(p->contenu.nom,name)==0) {
         p = t ;
         if(p->contenu.init!=0) {
             return 1 ;
         }
     }
     while(p->suivant!= NULL) {
-        if(p->suivant->contenu.nom == name) {
+        if(strcmp(p->suivant->contenu.nom, name)==0) {
             p = t ;
             if (p->suivant->contenu.init!=0){
                 return 1 ;
@@ -70,12 +71,12 @@ void delVariable(int profondeur) {
 
 int findOffset(char* name) {
     pile *t = p ;
-    if(p->contenu.nom==name) {
+    if(strcmp(p->contenu.nom, name)==0) {
         p = t ;
         return p->contenu.offset ;
     }
     while(p->suivant!= NULL) {
-        if(p->suivant->contenu.nom == name) {
+        if(strcmp(p->suivant->contenu.nom, name)==0) {
             p = t ;
             return p->suivant->contenu.offset ;
         }
@@ -88,13 +89,13 @@ int findOffset(char* name) {
 //Renvoie 1 si ça a fonctionné, -1 sinon
 int initialiser(char* name) {
     if (isInit(name)==0) {
-        if(p->contenu.nom==name) {
+        if(strcmp(p->contenu.nom,name)==0) {
             p->contenu.init = 1 ;
             return 1 ;
         }
         pile *t = p ;
         while(p->suivant!= NULL) {
-            if(p->suivant->contenu.nom == name) {
+            if(strcmp(p->suivant->contenu.nom, name)==0) {
                 p->suivant->contenu.init = 1 ;
                 p = t ;
                 return 1 ;
@@ -107,6 +108,22 @@ int initialiser(char* name) {
         return 1 ;
     }
     
+}
+
+
+void init(int offset) {
+    pile*t = p ;
+    if (t->contenu.offset==offset) {
+        t->contenu.init=1 ;
+    } else {
+        while(t->suivant!=NULL) {
+            t = t->suivant ;
+            if (t->contenu.offset==offset) {
+                t->contenu.init=1 ;
+                break ;
+            }
+        }
+    }
 }
 
 void printTable() {
@@ -148,3 +165,20 @@ int lastOffset() {
     }  
     return i ;
 }
+
+
+int profondeur = 0 ;
+
+
+int getProfondeur() {
+    return profondeur ;
+}
+
+void addProfondeur(){
+    profondeur++ ;
+}
+
+void delProfondeur(){
+    profondeur--;
+}
+

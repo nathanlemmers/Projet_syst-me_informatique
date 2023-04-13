@@ -26,6 +26,8 @@ int findOffset(char* name) ;
 
 int initialiser(char* name) ;
 
+void init(int offset) ;
+
 void printTable() ;
 
 void delTemporaire() ;
@@ -33,3 +35,9 @@ void delTemporaire() ;
 void  addTemporaire() ;
 
 int lastOffset() ;
+
+int getProfondeur() ;
+
+void addProfondeur() ;
+
+void delProfondeur() ;
