@@ -1,3 +1,4 @@
+CFLAGS=-g
 
 all: run
 
@@ -13,7 +14,7 @@ lex.yy.c: Lex_et_Yacc/lex.l lex.tab.h
 	flex Lex_et_Yacc/lex.l
 
 lex: build lex.yy.c lex.tab.c lex.tab.h
-	gcc -o lex lex.tab.c lex.yy.c ts.o
+	gcc -g -o lex lex.tab.c lex.yy.c ts.o
 
 clean:
 	rm lex lex.tab.c lex.yy.c lex.tab.h lex.output

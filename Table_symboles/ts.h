@@ -13,10 +13,10 @@ typedef struct pile {
     struct pile* suivant ;
 } pile ;
 
-pile* p ;
-
 
 void addVariable(char* nom, int init, int type , int profondeur) ;
+
+int exist(char *n) ;
 
 int isInit(char* nom) ;
 

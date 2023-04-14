@@ -3,6 +3,10 @@
 #include "ts.h"
 #include <string.h>
 
+
+pile* p = NULL;
+int profondeur = 0 ;
+
 //Renvoie 0 si PAS initialisé, 1 sinon
 int isInit(char* name) {
     pile *t = p ;
@@ -26,63 +30,74 @@ int isInit(char* name) {
 }
 
 void addVariable(char* n, int i,int type, int profondeur) {
-    pile *t = p ;
-    if (p==NULL) {
-        contenu c= {nom:n , init:i , profondeur:profondeur , offset: 0,  type : type} ;
-        p= malloc(sizeof(pile)) ;
-        p->contenu = c ;
-        p->suivant = NULL ;
-    }
-    else {
-        while(p->suivant!=NULL) {
-            p = p->suivant ;
+    if (strcmp(n,"")==0 || exist(n)==0) {
+        pile *t = p ;
+        if (p==NULL) {
+            contenu c= {nom:n , init:i , profondeur:profondeur , offset: 0,  type : type} ;
+            p= malloc(sizeof(pile)) ;
+            p->contenu = c ;
+            p->suivant = NULL ;
         }
-        int o = p->contenu.offset ;
-        contenu c= {nom:n , init:i , profondeur:profondeur , offset: o+1,  type : type} ;
-        p->suivant = malloc(sizeof(pile)) ;
-        p->suivant->contenu = c ;
-        p->suivant->suivant = NULL ;
-        p = t ;
+        else {
+            while(p->suivant!=NULL) {
+                p = p->suivant ;
+            }
+            int o = p->contenu.offset ;
+            contenu c= {nom:n , init:i , profondeur:profondeur , offset: o+1,  type : type} ;
+            p->suivant = malloc(sizeof(pile)) ;
+            p->suivant->contenu = c ;
+            p->suivant->suivant = NULL ;
+            p = t ;
+        }
+    } else {
+        printf("WARNING : La variable %s existe déja, impossible de la créer, elle n'a pas été modifié\n", n) ;
     }
 }
 
+int exist(char*n) {
+    pile* t= p ;
+    if (t!=NULL) {
+        if(strcmp(t->contenu.nom, n)==0){
+            return 1 ;
+        }
+        while(t->suivant!=NULL) {
+            t=t->suivant ;
+            if(strcmp(t->contenu.nom, n)==0){
+            return 1 ;
+            }
+        }
+    }
+    return 0 ;
+}
+
+
+
 void delVariable(int profondeur) {
-    int i = 0 ;
-    if (p->contenu.profondeur>profondeur) {
-        p = p->suivant ;
-        i ++ ;
+    pile **n = &p;
+    while (*n && (*n)->contenu.profondeur <= profondeur) {
+        n = &((*n)->suivant);
     }
-    pile* t = p ;
-    while(p->suivant!=NULL) {
-        pile* s = p->suivant ;
-        s->contenu.offset = s->contenu.offset - i ;
-        if (s->contenu.profondeur>profondeur) {
-            p->suivant = s->suivant ;
-            free(s) ;
-            i ++ ;
-        }
-        else {
-            p = p->suivant ;
-        }
+    while (*n) {
+        pile **s = &((*n)->suivant);
+        free(*n);
+        *n = NULL;
+        n = s;
     }
-    p = t ;
+    printTable();
 }
 
 
 int findOffset(char* name) {
     pile *t = p ;
-    if(strcmp(p->contenu.nom, name)==0) {
-        p = t ;
-        return p->contenu.offset ;
+    if(strcmp(t->contenu.nom, name)==0) {
+        return t->contenu.offset ;
     }
-    while(p->suivant!= NULL) {
-        if(strcmp(p->suivant->contenu.nom, name)==0) {
-            p = t ;
-            return p->suivant->contenu.offset ;
+    while(t->suivant!= NULL) {
+        if(strcmp(t->suivant->contenu.nom, name)==0) {
+            return t->suivant->contenu.offset ;
         }
-        p = p->suivant ;
+        t = t->suivant ;
     }
-    p = t ;
     return -1 ;
 }
 
@@ -127,6 +142,7 @@ void init(int offset) {
 }
 
 void printTable() {
+    printf("TABLE:\n");
     pile* t= p ;
     if(t!=NULL) {
         printf("nom : %s ; init : %i ; profondeur : %i ; offset : %i \n",t->contenu.nom, t->contenu.init, t->contenu.profondeur, t->contenu.offset) ;
@@ -135,6 +151,7 @@ void printTable() {
             printf("nom : %s ; init : %i ; profondeur : %i ; offset : %i \n",t->contenu.nom, t->contenu.init, t->contenu.profondeur, t->contenu.offset) ;
         }
     }
+    printf("\n");
 }
 
 
@@ -153,7 +170,7 @@ void delTemporaire() {
 
 
 void addTemporaire() {
-    addVariable("", 1, 0, 0) ;
+    addVariable("", 1, 0, profondeur) ;
 }
 
 int lastOffset() {
@@ -167,7 +184,6 @@ int lastOffset() {
 }
 
 
-int profondeur = 0 ;
 
 
 int getProfondeur() {

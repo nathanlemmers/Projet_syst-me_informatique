@@ -86,8 +86,8 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 12 "Lex_et_Yacc/lex.y"
- char *s; 
+#line 35 "Lex_et_Yacc/lex.y"
+ char *s; int nb; 
 
 #line 93 "lex.tab.h"
 
@@ -102,11 +102,13 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 /* "%code provides" blocks.  */
-#line 7 "Lex_et_Yacc/lex.y"
+#line 28 "Lex_et_Yacc/lex.y"
 
   int yylex (void);
   void yyerror (const char *);
 
-#line 111 "lex.tab.h"
+
+
+#line 113 "lex.tab.h"
 
 #endif /* !YY_YY_LEX_TAB_H_INCLUDED  */

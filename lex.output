@@ -41,86 +41,89 @@ Grammaire
 
    21 $@3: %empty
 
-   22 si: tIF tLPAR condition tRPAR tLBRACE $@3 structure tRBRACE
+   22 $@4: %empty
 
-   23 condition: condition tOR condition
-   24          | condition tAND condition
-   25          | condition tLE condition
-   26          | condition tGE condition
-   27          | condition tEQ condition
-   28          | condition tNE condition
-   29          | condition tGT condition
-   30          | condition tLT condition
-   31          | variable
-   32          | tNOT variable
-   33          | tNOT tLPAR condition tRPAR
+   23 si: tIF tLPAR condition tRPAR $@3 tLBRACE $@4 structure tRBRACE
 
-   34 action: newVariable tSEMI
-   35       | assignation tSEMI
-   36       | afficher tSEMI
+   24 condition: condition tOR condition
+   25          | condition tAND condition
+   26          | condition tLE condition
+   27          | condition tGE condition
+   28          | condition tEQ condition
+   29          | condition tNE condition
+   30          | condition tGT condition
+   31          | condition tLT condition
+   32          | tID
+   33          | tNB
+   34          | tNOT tID
+   35          | tNOT tLPAR condition tRPAR
 
-   37 newVariable: tINT valeur
-   38            | tINT valeur tASSIGN calcul
+   36 action: newVariable tSEMI
+   37       | assignation tSEMI
+   38       | afficher tSEMI
 
-   39 valeur: tID
-   40       | valeur tCOMMA tID
+   39 newVariable: tINT valeur
+   40            | tINT valeur tASSIGN calcul
 
-   41 assignation: tID tASSIGN calcul
+   41 valeur: tID
+   42       | valeur tCOMMA tID
 
-   42 afficher: tPRINT tLPAR tID tRPAR
+   43 assignation: tID tASSIGN calcul
 
-   43 variable: tID
-   44         | tNB
-   45         | fonction
+   44 afficher: tPRINT tLPAR tID tRPAR
 
-   46 calcul: tID
-   47       | tNB
-   48       | calcul tDIV calcul
-   49       | calcul tMUL calcul
-   50       | calcul tSUB calcul
-   51       | calcul tADD calcul
+   45 variable: tID
+   46         | tNB
+   47         | fonction
 
-   52 fonction: tID tLPAR agrvs tRPAR
+   48 calcul: tID
+   49       | tNB
+   50       | calcul tDIV calcul
+   51       | calcul tMUL calcul
+   52       | calcul tSUB calcul
+   53       | calcul tADD calcul
 
-   53 agrvs: agrv
-   54      | agrvs tCOMMA agrv
+   54 fonction: tID tLPAR agrvs tRPAR
 
-   55 agrv: calcul
+   55 agrvs: agrv
+   56      | agrvs tCOMMA agrv
+
+   57 agrv: calcul
 
 
 Terminaux, suivis des règles où ils apparaissent
 
     $end (0) 0
     error (256)
-    tID <s> (258) 3 4 9 39 40 41 42 43 46 52
-    tNB <s> (259) 44 47
-    tIF (260) 22
+    tID <s> (258) 3 4 9 32 34 41 42 43 44 45 48 54
+    tNB <s> (259) 33 46 49
+    tIF <nb> (260) 23
     tELSE (261) 20
     tWHILE (262) 18
-    tPRINT (263) 42
+    tPRINT (263) 44
     tRETURN (264) 5
-    tINT (265) 4 9 37 38
+    tINT (265) 4 9 39 40
     tVOID (266) 3 8
-    tCOMMA (267) 7 40 54
-    tSEMI (268) 5 34 35 36
-    tRPAR (269) 3 4 18 22 33 42 52
-    tLPAR (270) 3 4 18 22 33 42 52
-    tLBRACE (271) 3 4 18 20 22
-    tRBRACE (272) 3 4 18 20 22
-    tNOT (273) 32 33
-    tOR (274) 23
-    tAND (275) 24
-    tASSIGN (276) 38 41
-    tLE (277) 25
-    tGE (278) 26
-    tEQ (279) 27
-    tNE (280) 28
-    tGT (281) 29
-    tLT (282) 30
-    tDIV (283) 48
-    tMUL (284) 49
-    tSUB (285) 50
-    tADD (286) 51
+    tCOMMA (267) 7 42 56
+    tSEMI (268) 5 36 37 38
+    tRPAR (269) 3 4 18 23 35 44 54
+    tLPAR (270) 3 4 18 23 35 44 54
+    tLBRACE (271) 3 4 18 20 23
+    tRBRACE (272) 3 4 18 20 23
+    tNOT (273) 34 35
+    tOR (274) 24
+    tAND (275) 25
+    tASSIGN (276) 40 43
+    tLE (277) 26
+    tGE (278) 27
+    tEQ (279) 28
+    tNE (280) 29
+    tGT (281) 30
+    tLT (282) 31
+    tDIV (283) 50
+    tMUL (284) 51
+    tSUB (285) 52
+    tADD (286) 53
     tERROR (287)
 
 
@@ -145,7 +148,7 @@ Non-terminaux, suivis des règles où ils apparaissent
         à droite: 6 7
     structure (39)
         à gauche: 10 11
-        à droite: 3 4 10 18 20 22
+        à droite: 3 4 10 18 20 23
     contenu (40)
         à gauche: 12 13 14
         à droite: 10 11
@@ -165,44 +168,47 @@ Non-terminaux, suivis des règles où ils apparaissent
         à gauche: 19
         à droite: 20
     si (46)
-        à gauche: 22
+        à gauche: 23
         à droite: 15 16
     $@3 (47)
         à gauche: 21
-        à droite: 22
-    condition (48)
-        à gauche: 23 24 25 26 27 28 29 30 31 32 33
-        à droite: 18 22 23 24 25 26 27 28 29 30 33
-    action (49)
-        à gauche: 34 35 36
+        à droite: 23
+    $@4 (48)
+        à gauche: 22
+        à droite: 23
+    condition (49)
+        à gauche: 24 25 26 27 28 29 30 31 32 33 34 35
+        à droite: 18 23 24 25 26 27 28 29 30 31 35
+    action (50)
+        à gauche: 36 37 38
         à droite: 12
-    newVariable (50)
-        à gauche: 37 38
-        à droite: 34
-    valeur (51)
+    newVariable (51)
         à gauche: 39 40
-        à droite: 37 38 40
-    assignation (52)
-        à gauche: 41
-        à droite: 35
-    afficher (53)
-        à gauche: 42
         à droite: 36
-    variable (54)
-        à gauche: 43 44 45
-        à droite: 5 31 32
-    calcul (55)
-        à gauche: 46 47 48 49 50 51
-        à droite: 38 41 48 49 50 51 55
-    fonction (56)
-        à gauche: 52
-        à droite: 45
-    agrvs (57)
-        à gauche: 53 54
-        à droite: 52 54
-    agrv (58)
-        à gauche: 55
-        à droite: 53 54
+    valeur (52)
+        à gauche: 41 42
+        à droite: 39 40 42
+    assignation (53)
+        à gauche: 43
+        à droite: 37
+    afficher (54)
+        à gauche: 44
+        à droite: 38
+    variable (55)
+        à gauche: 45 46 47
+        à droite: 5
+    calcul (56)
+        à gauche: 48 49 50 51 52 53
+        à droite: 40 43 50 51 52 53 57
+    fonction (57)
+        à gauche: 54
+        à droite: 47
+    agrvs (58)
+        à gauche: 55 56
+        à droite: 54 56
+    agrv (59)
+        à gauche: 57
+        à droite: 55 56
 
 
 État 0
@@ -419,14 +425,14 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 23
 
-   41 assignation: tID . tASSIGN calcul
+   43 assignation: tID . tASSIGN calcul
 
     tASSIGN  décalage et aller à l'état 38
 
 
 État 24
 
-   22 si: tIF . tLPAR condition tRPAR tLBRACE $@3 structure tRBRACE
+   23 si: tIF . tLPAR condition tRPAR $@3 tLBRACE $@4 structure tRBRACE
 
     tLPAR  décalage et aller à l'état 39
 
@@ -440,15 +446,15 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 26
 
-   42 afficher: tPRINT . tLPAR tID tRPAR
+   44 afficher: tPRINT . tLPAR tID tRPAR
 
     tLPAR  décalage et aller à l'état 41
 
 
 État 27
 
-   37 newVariable: tINT . valeur
-   38            | tINT . valeur tASSIGN calcul
+   39 newVariable: tINT . valeur
+   40            | tINT . valeur tASSIGN calcul
 
     tID  décalage et aller à l'état 42
 
@@ -523,21 +529,21 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 34
 
-   34 action: newVariable . tSEMI
+   36 action: newVariable . tSEMI
 
     tSEMI  décalage et aller à l'état 49
 
 
 État 35
 
-   35 action: assignation . tSEMI
+   37 action: assignation . tSEMI
 
     tSEMI  décalage et aller à l'état 50
 
 
 État 36
 
-   36 action: afficher . tSEMI
+   38 action: afficher . tSEMI
 
     tSEMI  décalage et aller à l'état 51
 
@@ -551,7 +557,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 38
 
-   41 assignation: tID tASSIGN . calcul
+   43 assignation: tID tASSIGN . calcul
 
     tID  décalage et aller à l'état 53
     tNB  décalage et aller à l'état 54
@@ -561,15 +567,13 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 39
 
-   22 si: tIF tLPAR . condition tRPAR tLBRACE $@3 structure tRBRACE
+   23 si: tIF tLPAR . condition tRPAR $@3 tLBRACE $@4 structure tRBRACE
 
     tID   décalage et aller à l'état 56
     tNB   décalage et aller à l'état 57
     tNOT  décalage et aller à l'état 58
 
     condition  aller à l'état 59
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
 
 
 État 40
@@ -580,53 +584,51 @@ Non-terminaux, suivis des règles où ils apparaissent
     tNB   décalage et aller à l'état 57
     tNOT  décalage et aller à l'état 58
 
-    condition  aller à l'état 62
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
+    condition  aller à l'état 60
 
 
 État 41
 
-   42 afficher: tPRINT tLPAR . tID tRPAR
+   44 afficher: tPRINT tLPAR . tID tRPAR
 
-    tID  décalage et aller à l'état 63
+    tID  décalage et aller à l'état 61
 
 
 État 42
 
-   39 valeur: tID .
+   41 valeur: tID .
 
-    $défaut  réduction par utilisation de la règle 39 (valeur)
+    $défaut  réduction par utilisation de la règle 41 (valeur)
 
 
 État 43
 
-   37 newVariable: tINT valeur .
-   38            | tINT valeur . tASSIGN calcul
-   40 valeur: valeur . tCOMMA tID
+   39 newVariable: tINT valeur .
+   40            | tINT valeur . tASSIGN calcul
+   42 valeur: valeur . tCOMMA tID
 
-    tCOMMA   décalage et aller à l'état 64
-    tASSIGN  décalage et aller à l'état 65
+    tCOMMA   décalage et aller à l'état 62
+    tASSIGN  décalage et aller à l'état 63
 
-    $défaut  réduction par utilisation de la règle 37 (newVariable)
+    $défaut  réduction par utilisation de la règle 39 (newVariable)
 
 
 État 44
 
     5 retour: tRETURN . variable tSEMI
 
-    tID  décalage et aller à l'état 56
-    tNB  décalage et aller à l'état 57
+    tID  décalage et aller à l'état 64
+    tNB  décalage et aller à l'état 65
 
     variable  aller à l'état 66
-    fonction  aller à l'état 61
+    fonction  aller à l'état 67
 
 
 État 45
 
     4 total: tINT tID tLPAR arguments tRPAR tLBRACE structure retour . tRBRACE
 
-    tRBRACE  décalage et aller à l'état 67
+    tRBRACE  décalage et aller à l'état 68
 
 
 État 46
@@ -640,7 +642,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
    20 sinon: tELSE . tLBRACE $@2 structure tRBRACE
 
-    tLBRACE  décalage et aller à l'état 68
+    tLBRACE  décalage et aller à l'état 69
 
 
 État 48
@@ -652,23 +654,23 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 49
 
-   34 action: newVariable tSEMI .
+   36 action: newVariable tSEMI .
 
-    $défaut  réduction par utilisation de la règle 34 (action)
+    $défaut  réduction par utilisation de la règle 36 (action)
 
 
 État 50
 
-   35 action: assignation tSEMI .
+   37 action: assignation tSEMI .
 
-    $défaut  réduction par utilisation de la règle 35 (action)
+    $défaut  réduction par utilisation de la règle 37 (action)
 
 
 État 51
 
-   36 action: afficher tSEMI .
+   38 action: afficher tSEMI .
 
-    $défaut  réduction par utilisation de la règle 36 (action)
+    $défaut  réduction par utilisation de la règle 38 (action)
 
 
 État 52
@@ -680,75 +682,68 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 53
 
-   46 calcul: tID .
+   48 calcul: tID .
 
-    $défaut  réduction par utilisation de la règle 46 (calcul)
+    $défaut  réduction par utilisation de la règle 48 (calcul)
 
 
 État 54
 
-   47 calcul: tNB .
+   49 calcul: tNB .
 
-    $défaut  réduction par utilisation de la règle 47 (calcul)
+    $défaut  réduction par utilisation de la règle 49 (calcul)
 
 
 État 55
 
-   41 assignation: tID tASSIGN calcul .
-   48 calcul: calcul . tDIV calcul
-   49       | calcul . tMUL calcul
-   50       | calcul . tSUB calcul
-   51       | calcul . tADD calcul
+   43 assignation: tID tASSIGN calcul .
+   50 calcul: calcul . tDIV calcul
+   51       | calcul . tMUL calcul
+   52       | calcul . tSUB calcul
+   53       | calcul . tADD calcul
 
-    tDIV  décalage et aller à l'état 69
-    tMUL  décalage et aller à l'état 70
-    tSUB  décalage et aller à l'état 71
-    tADD  décalage et aller à l'état 72
+    tDIV  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
+    tSUB  décalage et aller à l'état 72
+    tADD  décalage et aller à l'état 73
 
-    $défaut  réduction par utilisation de la règle 41 (assignation)
+    $défaut  réduction par utilisation de la règle 43 (assignation)
 
 
 État 56
 
-   43 variable: tID .
-   52 fonction: tID . tLPAR agrvs tRPAR
+   32 condition: tID .
 
-    tLPAR  décalage et aller à l'état 73
-
-    $défaut  réduction par utilisation de la règle 43 (variable)
+    $défaut  réduction par utilisation de la règle 32 (condition)
 
 
 État 57
 
-   44 variable: tNB .
+   33 condition: tNB .
 
-    $défaut  réduction par utilisation de la règle 44 (variable)
+    $défaut  réduction par utilisation de la règle 33 (condition)
 
 
 État 58
 
-   32 condition: tNOT . variable
-   33          | tNOT . tLPAR condition tRPAR
+   34 condition: tNOT . tID
+   35          | tNOT . tLPAR condition tRPAR
 
-    tID    décalage et aller à l'état 56
-    tNB    décalage et aller à l'état 57
-    tLPAR  décalage et aller à l'état 74
-
-    variable  aller à l'état 75
-    fonction  aller à l'état 61
+    tID    décalage et aller à l'état 74
+    tLPAR  décalage et aller à l'état 75
 
 
 État 59
 
-   22 si: tIF tLPAR condition . tRPAR tLBRACE $@3 structure tRBRACE
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   30          | condition . tLT condition
+   23 si: tIF tLPAR condition . tRPAR $@3 tLBRACE $@4 structure tRBRACE
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   31          | condition . tLT condition
 
     tRPAR  décalage et aller à l'état 76
     tOR    décalage et aller à l'état 77
@@ -763,29 +758,15 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 60
 
-   31 condition: variable .
-
-    $défaut  réduction par utilisation de la règle 31 (condition)
-
-
-État 61
-
-   45 variable: fonction .
-
-    $défaut  réduction par utilisation de la règle 45 (variable)
-
-
-État 62
-
    18 tandis: tWHILE tLPAR condition . tRPAR tLBRACE $@1 structure tRBRACE
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   30          | condition . tLT condition
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   31          | condition . tLT condition
 
     tRPAR  décalage et aller à l'état 85
     tOR    décalage et aller à l'état 77
@@ -798,23 +779,23 @@ Non-terminaux, suivis des règles où ils apparaissent
     tLT    décalage et aller à l'état 84
 
 
-État 63
+État 61
 
-   42 afficher: tPRINT tLPAR tID . tRPAR
+   44 afficher: tPRINT tLPAR tID . tRPAR
 
     tRPAR  décalage et aller à l'état 86
 
 
-État 64
+État 62
 
-   40 valeur: valeur tCOMMA . tID
+   42 valeur: valeur tCOMMA . tID
 
     tID  décalage et aller à l'état 87
 
 
-État 65
+État 63
 
-   38 newVariable: tINT valeur tASSIGN . calcul
+   40 newVariable: tINT valeur tASSIGN . calcul
 
     tID  décalage et aller à l'état 53
     tNB  décalage et aller à l'état 54
@@ -822,42 +803,56 @@ Non-terminaux, suivis des règles où ils apparaissent
     calcul  aller à l'état 88
 
 
+État 64
+
+   45 variable: tID .
+   54 fonction: tID . tLPAR agrvs tRPAR
+
+    tLPAR  décalage et aller à l'état 89
+
+    $défaut  réduction par utilisation de la règle 45 (variable)
+
+
+État 65
+
+   46 variable: tNB .
+
+    $défaut  réduction par utilisation de la règle 46 (variable)
+
+
 État 66
 
     5 retour: tRETURN variable . tSEMI
 
-    tSEMI  décalage et aller à l'état 89
+    tSEMI  décalage et aller à l'état 90
 
 
 État 67
+
+   47 variable: fonction .
+
+    $défaut  réduction par utilisation de la règle 47 (variable)
+
+
+État 68
 
     4 total: tINT tID tLPAR arguments tRPAR tLBRACE structure retour tRBRACE .
 
     $défaut  réduction par utilisation de la règle 4 (total)
 
 
-État 68
+État 69
 
    20 sinon: tELSE tLBRACE . $@2 structure tRBRACE
 
     $défaut  réduction par utilisation de la règle 19 ($@2)
 
-    $@2  aller à l'état 90
-
-
-État 69
-
-   48 calcul: calcul tDIV . calcul
-
-    tID  décalage et aller à l'état 53
-    tNB  décalage et aller à l'état 54
-
-    calcul  aller à l'état 91
+    $@2  aller à l'état 91
 
 
 État 70
 
-   49 calcul: calcul tMUL . calcul
+   50 calcul: calcul tDIV . calcul
 
     tID  décalage et aller à l'état 53
     tNB  décalage et aller à l'état 54
@@ -867,7 +862,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 71
 
-   50 calcul: calcul tSUB . calcul
+   51 calcul: calcul tMUL . calcul
 
     tID  décalage et aller à l'état 53
     tNB  décalage et aller à l'état 54
@@ -877,7 +872,7 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 72
 
-   51 calcul: calcul tADD . calcul
+   52 calcul: calcul tSUB . calcul
 
     tID  décalage et aller à l'état 53
     tNB  décalage et aller à l'état 54
@@ -887,192 +882,186 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 73
 
-   52 fonction: tID tLPAR . agrvs tRPAR
+   53 calcul: calcul tADD . calcul
 
     tID  décalage et aller à l'état 53
     tNB  décalage et aller à l'état 54
 
     calcul  aller à l'état 95
-    agrvs   aller à l'état 96
-    agrv    aller à l'état 97
 
 
 État 74
 
-   33 condition: tNOT tLPAR . condition tRPAR
+   34 condition: tNOT tID .
+
+    $défaut  réduction par utilisation de la règle 34 (condition)
+
+
+État 75
+
+   35 condition: tNOT tLPAR . condition tRPAR
+
+    tID   décalage et aller à l'état 56
+    tNB   décalage et aller à l'état 57
+    tNOT  décalage et aller à l'état 58
+
+    condition  aller à l'état 96
+
+
+État 76
+
+   23 si: tIF tLPAR condition tRPAR . $@3 tLBRACE $@4 structure tRBRACE
+
+    $défaut  réduction par utilisation de la règle 21 ($@3)
+
+    $@3  aller à l'état 97
+
+
+État 77
+
+   24 condition: condition tOR . condition
 
     tID   décalage et aller à l'état 56
     tNB   décalage et aller à l'état 57
     tNOT  décalage et aller à l'état 58
 
     condition  aller à l'état 98
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
 
 
-État 75
+État 78
 
-   32 condition: tNOT variable .
+   25 condition: condition tAND . condition
 
-    $défaut  réduction par utilisation de la règle 32 (condition)
+    tID   décalage et aller à l'état 56
+    tNB   décalage et aller à l'état 57
+    tNOT  décalage et aller à l'état 58
 
-
-État 76
-
-   22 si: tIF tLPAR condition tRPAR . tLBRACE $@3 structure tRBRACE
-
-    tLBRACE  décalage et aller à l'état 99
+    condition  aller à l'état 99
 
 
-État 77
+État 79
 
-   23 condition: condition tOR . condition
+   26 condition: condition tLE . condition
 
     tID   décalage et aller à l'état 56
     tNB   décalage et aller à l'état 57
     tNOT  décalage et aller à l'état 58
 
     condition  aller à l'état 100
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
 
 
-État 78
+État 80
 
-   24 condition: condition tAND . condition
+   27 condition: condition tGE . condition
 
     tID   décalage et aller à l'état 56
     tNB   décalage et aller à l'état 57
     tNOT  décalage et aller à l'état 58
 
     condition  aller à l'état 101
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
 
 
-État 79
+État 81
 
-   25 condition: condition tLE . condition
+   28 condition: condition tEQ . condition
 
     tID   décalage et aller à l'état 56
     tNB   décalage et aller à l'état 57
     tNOT  décalage et aller à l'état 58
 
     condition  aller à l'état 102
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
 
 
-État 80
+État 82
 
-   26 condition: condition tGE . condition
+   29 condition: condition tNE . condition
 
     tID   décalage et aller à l'état 56
     tNB   décalage et aller à l'état 57
     tNOT  décalage et aller à l'état 58
 
     condition  aller à l'état 103
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
 
 
-État 81
+État 83
 
-   27 condition: condition tEQ . condition
+   30 condition: condition tGT . condition
 
     tID   décalage et aller à l'état 56
     tNB   décalage et aller à l'état 57
     tNOT  décalage et aller à l'état 58
 
     condition  aller à l'état 104
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
 
 
-État 82
+État 84
 
-   28 condition: condition tNE . condition
+   31 condition: condition tLT . condition
 
     tID   décalage et aller à l'état 56
     tNB   décalage et aller à l'état 57
     tNOT  décalage et aller à l'état 58
 
     condition  aller à l'état 105
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
-
-
-État 83
-
-   29 condition: condition tGT . condition
-
-    tID   décalage et aller à l'état 56
-    tNB   décalage et aller à l'état 57
-    tNOT  décalage et aller à l'état 58
-
-    condition  aller à l'état 106
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
-
-
-État 84
-
-   30 condition: condition tLT . condition
-
-    tID   décalage et aller à l'état 56
-    tNB   décalage et aller à l'état 57
-    tNOT  décalage et aller à l'état 58
-
-    condition  aller à l'état 107
-    variable   aller à l'état 60
-    fonction   aller à l'état 61
 
 
 État 85
 
    18 tandis: tWHILE tLPAR condition tRPAR . tLBRACE $@1 structure tRBRACE
 
-    tLBRACE  décalage et aller à l'état 108
+    tLBRACE  décalage et aller à l'état 106
 
 
 État 86
 
-   42 afficher: tPRINT tLPAR tID tRPAR .
+   44 afficher: tPRINT tLPAR tID tRPAR .
 
-    $défaut  réduction par utilisation de la règle 42 (afficher)
+    $défaut  réduction par utilisation de la règle 44 (afficher)
 
 
 État 87
 
-   40 valeur: valeur tCOMMA tID .
+   42 valeur: valeur tCOMMA tID .
 
-    $défaut  réduction par utilisation de la règle 40 (valeur)
+    $défaut  réduction par utilisation de la règle 42 (valeur)
 
 
 État 88
 
-   38 newVariable: tINT valeur tASSIGN calcul .
-   48 calcul: calcul . tDIV calcul
-   49       | calcul . tMUL calcul
-   50       | calcul . tSUB calcul
-   51       | calcul . tADD calcul
+   40 newVariable: tINT valeur tASSIGN calcul .
+   50 calcul: calcul . tDIV calcul
+   51       | calcul . tMUL calcul
+   52       | calcul . tSUB calcul
+   53       | calcul . tADD calcul
 
-    tDIV  décalage et aller à l'état 69
-    tMUL  décalage et aller à l'état 70
-    tSUB  décalage et aller à l'état 71
-    tADD  décalage et aller à l'état 72
+    tDIV  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
+    tSUB  décalage et aller à l'état 72
+    tADD  décalage et aller à l'état 73
 
-    $défaut  réduction par utilisation de la règle 38 (newVariable)
+    $défaut  réduction par utilisation de la règle 40 (newVariable)
 
 
 État 89
+
+   54 fonction: tID tLPAR . agrvs tRPAR
+
+    tID  décalage et aller à l'état 53
+    tNB  décalage et aller à l'état 54
+
+    calcul  aller à l'état 107
+    agrvs   aller à l'état 108
+    agrv    aller à l'état 109
+
+
+État 90
 
     5 retour: tRETURN variable tSEMI .
 
     $défaut  réduction par utilisation de la règle 5 (retour)
 
 
-État 90
+État 91
 
    20 sinon: tELSE tLBRACE $@2 . structure tRBRACE
 
@@ -1082,7 +1071,7 @@ Non-terminaux, suivis des règles où ils apparaissent
     tPRINT  décalage et aller à l'état 26
     tINT    décalage et aller à l'état 27
 
-    structure    aller à l'état 109
+    structure    aller à l'état 110
     contenu      aller à l'état 29
     Sicomplet    aller à l'état 30
     tandis       aller à l'état 31
@@ -1093,101 +1082,69 @@ Non-terminaux, suivis des règles où ils apparaissent
     afficher     aller à l'état 36
 
 
-État 91
-
-   48 calcul: calcul . tDIV calcul
-   48       | calcul tDIV calcul .
-   49       | calcul . tMUL calcul
-   50       | calcul . tSUB calcul
-   51       | calcul . tADD calcul
-
-    $défaut  réduction par utilisation de la règle 48 (calcul)
-
-
 État 92
 
-   48 calcul: calcul . tDIV calcul
-   49       | calcul . tMUL calcul
-   49       | calcul tMUL calcul .
-   50       | calcul . tSUB calcul
-   51       | calcul . tADD calcul
-
-    $défaut  réduction par utilisation de la règle 49 (calcul)
-
-
-État 93
-
-   48 calcul: calcul . tDIV calcul
-   49       | calcul . tMUL calcul
-   50       | calcul . tSUB calcul
-   50       | calcul tSUB calcul .
-   51       | calcul . tADD calcul
-
-    tDIV  décalage et aller à l'état 69
-    tMUL  décalage et aller à l'état 70
+   50 calcul: calcul . tDIV calcul
+   50       | calcul tDIV calcul .
+   51       | calcul . tMUL calcul
+   52       | calcul . tSUB calcul
+   53       | calcul . tADD calcul
 
     $défaut  réduction par utilisation de la règle 50 (calcul)
 
 
-État 94
+État 93
 
-   48 calcul: calcul . tDIV calcul
-   49       | calcul . tMUL calcul
-   50       | calcul . tSUB calcul
-   51       | calcul . tADD calcul
-   51       | calcul tADD calcul .
-
-    tDIV  décalage et aller à l'état 69
-    tMUL  décalage et aller à l'état 70
+   50 calcul: calcul . tDIV calcul
+   51       | calcul . tMUL calcul
+   51       | calcul tMUL calcul .
+   52       | calcul . tSUB calcul
+   53       | calcul . tADD calcul
 
     $défaut  réduction par utilisation de la règle 51 (calcul)
 
 
+État 94
+
+   50 calcul: calcul . tDIV calcul
+   51       | calcul . tMUL calcul
+   52       | calcul . tSUB calcul
+   52       | calcul tSUB calcul .
+   53       | calcul . tADD calcul
+
+    tDIV  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
+
+    $défaut  réduction par utilisation de la règle 52 (calcul)
+
+
 État 95
 
-   48 calcul: calcul . tDIV calcul
-   49       | calcul . tMUL calcul
-   50       | calcul . tSUB calcul
-   51       | calcul . tADD calcul
-   55 agrv: calcul .
+   50 calcul: calcul . tDIV calcul
+   51       | calcul . tMUL calcul
+   52       | calcul . tSUB calcul
+   53       | calcul . tADD calcul
+   53       | calcul tADD calcul .
 
-    tDIV  décalage et aller à l'état 69
-    tMUL  décalage et aller à l'état 70
-    tSUB  décalage et aller à l'état 71
-    tADD  décalage et aller à l'état 72
+    tDIV  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
 
-    $défaut  réduction par utilisation de la règle 55 (agrv)
+    $défaut  réduction par utilisation de la règle 53 (calcul)
 
 
 État 96
 
-   52 fonction: tID tLPAR agrvs . tRPAR
-   54 agrvs: agrvs . tCOMMA agrv
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   31          | condition . tLT condition
+   35          | tNOT tLPAR condition . tRPAR
 
-    tCOMMA  décalage et aller à l'état 110
-    tRPAR   décalage et aller à l'état 111
-
-
-État 97
-
-   53 agrvs: agrv .
-
-    $défaut  réduction par utilisation de la règle 53 (agrvs)
-
-
-État 98
-
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   30          | condition . tLT condition
-   33          | tNOT tLPAR condition . tRPAR
-
-    tRPAR  décalage et aller à l'état 112
+    tRPAR  décalage et aller à l'état 111
     tOR    décalage et aller à l'état 77
     tAND   décalage et aller à l'état 78
     tLE    décalage et aller à l'état 79
@@ -1198,48 +1155,24 @@ Non-terminaux, suivis des règles où ils apparaissent
     tLT    décalage et aller à l'état 84
 
 
-État 99
+État 97
 
-   22 si: tIF tLPAR condition tRPAR tLBRACE . $@3 structure tRBRACE
+   23 si: tIF tLPAR condition tRPAR $@3 . tLBRACE $@4 structure tRBRACE
 
-    $défaut  réduction par utilisation de la règle 21 ($@3)
-
-    $@3  aller à l'état 113
+    tLBRACE  décalage et aller à l'état 112
 
 
-État 100
+État 98
 
-   23 condition: condition . tOR condition
-   23          | condition tOR condition .
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   30          | condition . tLT condition
-
-    tLE  décalage et aller à l'état 79
-    tGE  décalage et aller à l'état 80
-    tEQ  décalage et aller à l'état 81
-    tNE  décalage et aller à l'état 82
-    tGT  décalage et aller à l'état 83
-    tLT  décalage et aller à l'état 84
-
-    $défaut  réduction par utilisation de la règle 23 (condition)
-
-
-État 101
-
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   24          | condition tAND condition .
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   30          | condition . tLT condition
+   24 condition: condition . tOR condition
+   24          | condition tOR condition .
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   31          | condition . tLT condition
 
     tLE  décalage et aller à l'état 79
     tGE  décalage et aller à l'état 80
@@ -1251,159 +1184,183 @@ Non-terminaux, suivis des règles où ils apparaissent
     $défaut  réduction par utilisation de la règle 24 (condition)
 
 
-État 102
+État 99
 
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   25          | condition tLE condition .
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   30          | condition . tLT condition
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   25          | condition tAND condition .
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   31          | condition . tLT condition
+
+    tLE  décalage et aller à l'état 79
+    tGE  décalage et aller à l'état 80
+    tEQ  décalage et aller à l'état 81
+    tNE  décalage et aller à l'état 82
+    tGT  décalage et aller à l'état 83
+    tLT  décalage et aller à l'état 84
 
     $défaut  réduction par utilisation de la règle 25 (condition)
 
 
-État 103
+État 100
 
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   26          | condition tGE condition .
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   30          | condition . tLT condition
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   26          | condition tLE condition .
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   31          | condition . tLT condition
 
     $défaut  réduction par utilisation de la règle 26 (condition)
 
 
-État 104
+État 101
 
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   27          | condition tEQ condition .
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   30          | condition . tLT condition
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   27          | condition tGE condition .
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   31          | condition . tLT condition
 
     $défaut  réduction par utilisation de la règle 27 (condition)
 
 
-État 105
+État 102
 
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   28          | condition tNE condition .
-   29          | condition . tGT condition
-   30          | condition . tLT condition
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   28          | condition tEQ condition .
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   31          | condition . tLT condition
 
     $défaut  réduction par utilisation de la règle 28 (condition)
 
 
-État 106
+État 103
 
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   29          | condition tGT condition .
-   30          | condition . tLT condition
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   29          | condition tNE condition .
+   30          | condition . tGT condition
+   31          | condition . tLT condition
 
     $défaut  réduction par utilisation de la règle 29 (condition)
 
 
-État 107
+État 104
 
-   23 condition: condition . tOR condition
-   24          | condition . tAND condition
-   25          | condition . tLE condition
-   26          | condition . tGE condition
-   27          | condition . tEQ condition
-   28          | condition . tNE condition
-   29          | condition . tGT condition
-   30          | condition . tLT condition
-   30          | condition tLT condition .
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   30          | condition tGT condition .
+   31          | condition . tLT condition
 
     $défaut  réduction par utilisation de la règle 30 (condition)
 
 
-État 108
+État 105
+
+   24 condition: condition . tOR condition
+   25          | condition . tAND condition
+   26          | condition . tLE condition
+   27          | condition . tGE condition
+   28          | condition . tEQ condition
+   29          | condition . tNE condition
+   30          | condition . tGT condition
+   31          | condition . tLT condition
+   31          | condition tLT condition .
+
+    $défaut  réduction par utilisation de la règle 31 (condition)
+
+
+État 106
 
    18 tandis: tWHILE tLPAR condition tRPAR tLBRACE . $@1 structure tRBRACE
 
     $défaut  réduction par utilisation de la règle 17 ($@1)
 
-    $@1  aller à l'état 114
+    $@1  aller à l'état 113
+
+
+État 107
+
+   50 calcul: calcul . tDIV calcul
+   51       | calcul . tMUL calcul
+   52       | calcul . tSUB calcul
+   53       | calcul . tADD calcul
+   57 agrv: calcul .
+
+    tDIV  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
+    tSUB  décalage et aller à l'état 72
+    tADD  décalage et aller à l'état 73
+
+    $défaut  réduction par utilisation de la règle 57 (agrv)
+
+
+État 108
+
+   54 fonction: tID tLPAR agrvs . tRPAR
+   56 agrvs: agrvs . tCOMMA agrv
+
+    tCOMMA  décalage et aller à l'état 114
+    tRPAR   décalage et aller à l'état 115
 
 
 État 109
 
-   20 sinon: tELSE tLBRACE $@2 structure . tRBRACE
+   55 agrvs: agrv .
 
-    tRBRACE  décalage et aller à l'état 115
+    $défaut  réduction par utilisation de la règle 55 (agrvs)
 
 
 État 110
 
-   54 agrvs: agrvs tCOMMA . agrv
+   20 sinon: tELSE tLBRACE $@2 structure . tRBRACE
 
-    tID  décalage et aller à l'état 53
-    tNB  décalage et aller à l'état 54
-
-    calcul  aller à l'état 95
-    agrv    aller à l'état 116
+    tRBRACE  décalage et aller à l'état 116
 
 
 État 111
 
-   52 fonction: tID tLPAR agrvs tRPAR .
+   35 condition: tNOT tLPAR condition tRPAR .
 
-    $défaut  réduction par utilisation de la règle 52 (fonction)
+    $défaut  réduction par utilisation de la règle 35 (condition)
 
 
 État 112
 
-   33 condition: tNOT tLPAR condition tRPAR .
+   23 si: tIF tLPAR condition tRPAR $@3 tLBRACE . $@4 structure tRBRACE
 
-    $défaut  réduction par utilisation de la règle 33 (condition)
+    $défaut  réduction par utilisation de la règle 22 ($@4)
+
+    $@4  aller à l'état 117
 
 
 État 113
-
-   22 si: tIF tLPAR condition tRPAR tLBRACE $@3 . structure tRBRACE
-
-    tID     décalage et aller à l'état 23
-    tIF     décalage et aller à l'état 24
-    tWHILE  décalage et aller à l'état 25
-    tPRINT  décalage et aller à l'état 26
-    tINT    décalage et aller à l'état 27
-
-    structure    aller à l'état 117
-    contenu      aller à l'état 29
-    Sicomplet    aller à l'état 30
-    tandis       aller à l'état 31
-    si           aller à l'état 32
-    action       aller à l'état 33
-    newVariable  aller à l'état 34
-    assignation  aller à l'état 35
-    afficher     aller à l'état 36
-
-
-État 114
 
    18 tandis: tWHILE tLPAR condition tRPAR tLBRACE $@1 . structure tRBRACE
 
@@ -1424,43 +1381,82 @@ Non-terminaux, suivis des règles où ils apparaissent
     afficher     aller à l'état 36
 
 
+État 114
+
+   56 agrvs: agrvs tCOMMA . agrv
+
+    tID  décalage et aller à l'état 53
+    tNB  décalage et aller à l'état 54
+
+    calcul  aller à l'état 107
+    agrv    aller à l'état 119
+
+
 État 115
+
+   54 fonction: tID tLPAR agrvs tRPAR .
+
+    $défaut  réduction par utilisation de la règle 54 (fonction)
+
+
+État 116
 
    20 sinon: tELSE tLBRACE $@2 structure tRBRACE .
 
     $défaut  réduction par utilisation de la règle 20 (sinon)
 
 
-État 116
-
-   54 agrvs: agrvs tCOMMA agrv .
-
-    $défaut  réduction par utilisation de la règle 54 (agrvs)
-
-
 État 117
 
-   22 si: tIF tLPAR condition tRPAR tLBRACE $@3 structure . tRBRACE
+   23 si: tIF tLPAR condition tRPAR $@3 tLBRACE $@4 . structure tRBRACE
 
-    tRBRACE  décalage et aller à l'état 119
+    tID     décalage et aller à l'état 23
+    tIF     décalage et aller à l'état 24
+    tWHILE  décalage et aller à l'état 25
+    tPRINT  décalage et aller à l'état 26
+    tINT    décalage et aller à l'état 27
+
+    structure    aller à l'état 120
+    contenu      aller à l'état 29
+    Sicomplet    aller à l'état 30
+    tandis       aller à l'état 31
+    si           aller à l'état 32
+    action       aller à l'état 33
+    newVariable  aller à l'état 34
+    assignation  aller à l'état 35
+    afficher     aller à l'état 36
 
 
 État 118
 
    18 tandis: tWHILE tLPAR condition tRPAR tLBRACE $@1 structure . tRBRACE
 
-    tRBRACE  décalage et aller à l'état 120
+    tRBRACE  décalage et aller à l'état 121
 
 
 État 119
 
-   22 si: tIF tLPAR condition tRPAR tLBRACE $@3 structure tRBRACE .
+   56 agrvs: agrvs tCOMMA agrv .
 
-    $défaut  réduction par utilisation de la règle 22 (si)
+    $défaut  réduction par utilisation de la règle 56 (agrvs)
 
 
 État 120
 
+   23 si: tIF tLPAR condition tRPAR $@3 tLBRACE $@4 structure . tRBRACE
+
+    tRBRACE  décalage et aller à l'état 122
+
+
+État 121
+
    18 tandis: tWHILE tLPAR condition tRPAR tLBRACE $@1 structure tRBRACE .
 
     $défaut  réduction par utilisation de la règle 18 (tandis)
+
+
+État 122
+
+   23 si: tIF tLPAR condition tRPAR $@3 tLBRACE $@4 structure tRBRACE .
+
+    $défaut  réduction par utilisation de la règle 23 (si)
