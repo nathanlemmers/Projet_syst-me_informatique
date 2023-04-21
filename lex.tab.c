@@ -89,9 +89,10 @@ OR = variable*3
 LT = variable*3
 GT = variable*3
 EQU = variable*3
+JMF = variable(boolean), label de saut ON SAUTE SI C'EST FAUX, DONC variable=0
 */
 
-#line 95 "lex.tab.c"
+#line 96 "lex.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -119,7 +120,7 @@ EQU = variable*3
 # undef YYERROR_VERBOSE
 # define YYERROR_VERBOSE 1
 #else
-# define YYERROR_VERBOSE 0
+# define YYERROR_VERBOSE 1
 #endif
 
 /* Use api.header.include to #include this header
@@ -142,17 +143,17 @@ extern int yydebug;
     tID = 258,
     tNB = 259,
     tIF = 260,
-    tELSE = 261,
+    tLBRACE = 261,
     tWHILE = 262,
-    tPRINT = 263,
-    tRETURN = 264,
-    tINT = 265,
-    tVOID = 266,
-    tCOMMA = 267,
-    tSEMI = 268,
-    tRPAR = 269,
-    tLPAR = 270,
-    tLBRACE = 271,
+    tELSE = 263,
+    tPRINT = 264,
+    tRETURN = 265,
+    tINT = 266,
+    tVOID = 267,
+    tCOMMA = 268,
+    tSEMI = 269,
+    tRPAR = 270,
+    tLPAR = 271,
     tRBRACE = 272,
     tNOT = 273,
     tOR = 274,
@@ -176,10 +177,10 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 35 "Lex_et_Yacc/lex.y"
+#line 36 "Lex_et_Yacc/lex.y"
  char *s; int nb; 
 
-#line 183 "lex.tab.c"
+#line 184 "lex.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -192,14 +193,14 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 /* "%code provides" blocks.  */
-#line 28 "Lex_et_Yacc/lex.y"
+#line 29 "Lex_et_Yacc/lex.y"
 
   int yylex (void);
   void yyerror (const char *);
 
 
 
-#line 203 "lex.tab.c"
+#line 204 "lex.tab.c"
 
 #endif /* !YY_YY_LEX_TAB_H_INCLUDED  */
 
@@ -507,16 +508,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  7
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   128
+#define YYLAST   131
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  33
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  27
+#define YYNNTS  33
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  58
+#define YYNRULES  64
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  123
+#define YYNSTATES  128
 
 #define YYUNDEFTOK  2
 #define YYMAXUTOK   287
@@ -564,31 +565,32 @@ static const yytype_int8 yytranslate[] =
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
-static const yytype_uint8 yyrline[] =
+static const yytype_int16 yyrline[] =
 {
-       0,    44,    44,    45,    49,    50,    53,    56,    57,    58,
-      61,    66,    67,    71,    72,    73,    77,    78,    81,    81,
-      85,    85,    90,    94,    89,   103,   109,   113,   122,   131,
-     135,   141,   145,   149,   153,   157,   162,   172,   173,   174,
-     178,   179,   186,   187,   189,   197,   202,   203,   204,   220,
-     224,   228,   231,   234,   237,   249,   251,   252,   255
+       0,    46,    46,    47,    52,    56,    51,    61,    64,    60,
+      67,    72,    73,    74,    77,    82,    83,    87,    88,    89,
+      93,    94,    94,   103,   106,   103,   117,   117,   122,   126,
+     121,   135,   140,   144,   153,   162,   166,   172,   176,   180,
+     184,   188,   193,   203,   204,   205,   209,   210,   217,   218,
+     220,   228,   244,   248,   252,   253,   256,   259,   262,   275,
+     274,   290,   291,   292,   295
 };
 #endif
 
-#if YYDEBUG || YYERROR_VERBOSE || 0
+#if YYDEBUG || YYERROR_VERBOSE || 1
 /* YYTNAME[SYMBOL-NUM] -- String name of the symbol SYMBOL-NUM.
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "tID", "tNB", "tIF", "tELSE", "tWHILE",
-  "tPRINT", "tRETURN", "tINT", "tVOID", "tCOMMA", "tSEMI", "tRPAR",
-  "tLPAR", "tLBRACE", "tRBRACE", "tNOT", "tOR", "tAND", "tASSIGN", "tLE",
+  "$end", "error", "$undefined", "tID", "tNB", "tIF", "tLBRACE", "tWHILE",
+  "tELSE", "tPRINT", "tRETURN", "tINT", "tVOID", "tCOMMA", "tSEMI",
+  "tRPAR", "tLPAR", "tRBRACE", "tNOT", "tOR", "tAND", "tASSIGN", "tLE",
   "tGE", "tEQ", "tNE", "tGT", "tLT", "tDIV", "tMUL", "tSUB", "tADD",
-  "tERROR", "$accept", "totals", "total", "retour", "arguments",
-  "argument", "structure", "contenu", "Sicomplet", "tandis", "$@1",
-  "sinon", "$@2", "si", "$@3", "$@4", "condition", "action", "newVariable",
-  "valeur", "assignation", "afficher", "variable", "calcul", "fonction",
-  "agrvs", "agrv", YY_NULLPTR
+  "tERROR", "$accept", "totals", "total", "$@1", "$@2", "$@3", "$@4",
+  "retour", "arguments", "argument", "structure", "contenu", "Sicomplet",
+  "$@5", "tandis", "$@6", "$@7", "sinon", "$@8", "si", "$@9", "$@10",
+  "condition", "action", "newVariable", "valeur", "assignation",
+  "afficher", "calcul", "fonction", "$@11", "agrvs", "agrv", YY_NULLPTR
 };
 #endif
 
@@ -604,12 +606,12 @@ static const yytype_int16 yytoknum[] =
 };
 # endif
 
-#define YYPACT_NINF (-40)
+#define YYPACT_NINF (-64)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
 
-#define YYTABLE_NINF (-1)
+#define YYTABLE_NINF (-22)
 
 #define yytable_value_is_error(Yyn) \
   0
@@ -618,19 +620,19 @@ static const yytype_int16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      74,     2,    28,    18,   -40,    36,    44,   -40,   -40,    76,
-      76,    30,   -40,    56,   -40,    68,   -40,    57,    78,    80,
-     -40,    27,    27,    79,    58,    75,    82,    98,    93,    27,
-     -40,   -40,    97,   -40,    91,    92,    94,    95,    85,    -1,
-      -1,   103,   -40,    -6,    89,    96,   -40,    99,   -40,   -40,
-     -40,   -40,   -40,   -40,   -40,    19,   -40,   -40,     1,     0,
-      38,   100,   105,    85,   101,   -40,   104,   -40,   -40,   -40,
-      85,    85,    85,    85,   -40,    -1,   -40,    -1,    -1,    -1,
-      -1,    -1,    -1,    -1,    -1,   102,   -40,   -40,    19,    85,
-     -40,    27,   -40,   -40,    70,    70,    52,   106,   -14,   -14,
-     -40,   -40,   -40,   -40,   -40,   -40,   -40,    19,    69,   -40,
-     107,   -40,   -40,    27,    85,   -40,   -40,    27,   108,   -40,
-     109,   -40,   -40
+      27,   -64,   -64,    40,   -64,     3,     6,   -64,   -64,   -64,
+     -64,    16,    37,    81,    81,    13,   -64,   -10,   -64,    51,
+     -64,    32,    50,    59,   -64,    74,    74,    61,    53,    86,
+      89,    77,    96,    74,   -64,   -64,    99,   -64,    94,    95,
+      98,    93,    97,     7,   -64,   108,   -64,    -9,    97,   100,
+     -64,   105,   -64,   -64,   -64,   -64,   102,   -64,    68,   -64,
+     -64,   -64,    10,    22,     7,   101,   111,    97,     0,   -64,
+     109,   -64,   -64,    97,    97,    97,    97,   -64,     7,   -64,
+       7,     7,     7,     7,     7,     7,     7,     7,    35,   -64,
+     -64,    68,   -64,   -64,    97,   -64,   -64,    75,    75,    48,
+     113,    64,    64,   -64,   -64,   -64,   -64,   -64,   -64,   114,
+      74,    68,    63,   -64,   -64,   -64,   -64,   104,    97,   -64,
+      74,    74,   -64,   -64,   106,   107,   -64,   -64
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -638,35 +640,37 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,     0,     2,     0,     0,     1,     3,     0,
-       0,     0,     9,     0,     7,     0,    10,     0,     0,     0,
-       8,     0,     0,     0,     0,     0,     0,     0,     0,    12,
-      14,    15,    16,    13,     0,     0,     0,     0,     0,     0,
-       0,     0,    42,    40,     0,     0,    11,     0,    17,    37,
-      38,    39,     4,    49,    50,    44,    33,    34,     0,     0,
-       0,     0,     0,     0,    46,    47,     0,    48,     5,    20,
-       0,     0,     0,     0,    35,     0,    22,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,    45,    43,    41,     0,
-       6,     0,    51,    52,    53,    54,     0,     0,    25,    26,
-      27,    28,    29,    30,    31,    32,    18,    58,     0,    56,
-       0,    36,    23,     0,     0,    55,    21,     0,     0,    57,
-       0,    19,    24
+       0,     7,     4,     0,     2,     0,     0,     1,     3,     8,
+       5,     0,     0,     0,     0,     0,    13,     0,    11,     0,
+      14,     0,     0,     0,    12,     0,     0,     0,     0,     0,
+       0,     0,     0,    16,    18,    19,    20,    17,     0,     0,
+       0,     0,     0,     0,    23,     0,    48,    46,     0,     0,
+      15,     0,    43,    44,    45,     6,    52,    53,    50,    54,
+      39,    40,     0,     0,     0,     0,     0,     0,     0,     9,
+       0,    22,    59,     0,     0,     0,     0,    41,     0,    28,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,    51,
+      49,    47,    10,    26,    61,    55,    56,    57,    58,     0,
+       0,    31,    32,    33,    34,    35,    36,    37,    38,     0,
+       0,    64,     0,    62,    42,    29,    24,     0,     0,    60,
+       0,     0,    27,    63,     0,     0,    30,    25
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -40,   -40,   116,   -40,   110,   111,   -22,   -40,   -40,   -40,
-     -40,   -40,   -40,   -40,   -40,   -40,   -39,   -40,   -40,   -40,
-     -40,   -40,   -40,   -17,   -40,   -40,    -5
+     -64,   -64,   119,   -64,   -64,   -64,   -64,   -64,   112,   110,
+     -26,   -64,   -64,   -64,   -64,   -64,   -64,   -64,   -64,   -64,
+     -64,   -64,   -63,   -64,   -64,   -64,   -64,   -64,   -40,   -64,
+     -64,   -64,     9
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     3,     4,    45,    13,    14,    28,    29,    30,    31,
-     113,    48,    91,    32,    97,   117,    59,    33,    34,    43,
-      35,    36,    66,   107,    67,   108,   109
+      -1,     3,     4,     6,    12,     5,    11,    49,    17,    18,
+      32,    33,    34,    51,    35,    64,   121,    71,   110,    36,
+     100,   120,    63,    37,    38,    47,    39,    40,   111,    59,
+      94,   112,   113
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -674,77 +678,81 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      37,    60,    56,    57,    74,     5,    62,    46,    79,    80,
-      81,    82,    83,    84,    76,    63,    75,    58,     7,    77,
-      78,    55,    79,    80,    81,    82,    83,    84,     1,     2,
-      23,     6,    24,    16,    25,    26,    96,    27,    98,    99,
-     100,   101,   102,   103,   104,   105,    88,    70,    71,    72,
-      73,     9,    85,    92,    93,    94,    95,    77,    78,    10,
-      79,    80,    81,    82,    83,    84,   111,    11,    17,   110,
-      18,    77,    78,    39,    79,    80,    81,    82,    83,    84,
-      17,   114,    19,   115,     1,     2,    11,    12,    53,    54,
-      40,   118,    64,    65,    21,   120,    22,    41,    70,    71,
-      38,    42,    44,    47,    49,    50,    61,    51,    87,   119,
-       0,     0,    52,    68,    86,    69,    89,    90,   106,     8,
-      15,     0,   112,     0,   116,   121,   122,     0,    20
+      41,    88,    58,    21,    66,    22,     9,    50,    68,    10,
+      60,    61,    67,    77,    92,    99,    20,   101,   102,   103,
+     104,   105,   106,   107,   108,    62,    78,    91,    73,    74,
+      75,    76,    13,    95,    96,    97,    98,    79,     1,     2,
+       7,    80,    81,    15,    82,    83,    84,    85,    86,    87,
+     109,     1,     2,    14,    80,    81,    25,    82,    83,    84,
+      85,    86,    87,   114,    21,    26,    23,    80,    81,    43,
+      82,    83,    84,    85,    86,    87,   118,    27,   119,    28,
+      46,    29,    42,    30,   117,    31,    82,    83,    84,    85,
+      86,    87,    15,    16,   124,   125,    73,    74,    75,    76,
+      56,    57,    44,    73,    74,    45,    48,   -21,    52,    53,
+      55,    65,    54,    70,    90,    93,    89,    69,    72,   115,
+     116,   122,     8,   126,   127,     0,    19,   123,     0,     0,
+       0,    24
 };
 
 static const yytype_int8 yycheck[] =
 {
-      22,    40,     3,     4,     3,     3,    12,    29,    22,    23,
-      24,    25,    26,    27,    14,    21,    15,    18,     0,    19,
-      20,    38,    22,    23,    24,    25,    26,    27,    10,    11,
-       3,     3,     5,     3,     7,     8,    75,    10,    77,    78,
-      79,    80,    81,    82,    83,    84,    63,    28,    29,    30,
-      31,    15,    14,    70,    71,    72,    73,    19,    20,    15,
-      22,    23,    24,    25,    26,    27,    14,    10,    12,    91,
-      14,    19,    20,    15,    22,    23,    24,    25,    26,    27,
-      12,    12,    14,    14,    10,    11,    10,    11,     3,     4,
-      15,   113,     3,     4,    16,   117,    16,    15,    28,    29,
-      21,     3,     9,     6,    13,    13,     3,    13,     3,   114,
-      -1,    -1,    17,    17,    14,    16,    15,    13,    16,     3,
-      10,    -1,    16,    -1,    17,    17,    17,    -1,    17
+      26,    64,    42,    13,    13,    15,     3,    33,    48,     3,
+       3,     4,    21,     3,    14,    78,     3,    80,    81,    82,
+      83,    84,    85,    86,    87,    18,    16,    67,    28,    29,
+      30,    31,    16,    73,    74,    75,    76,    15,    11,    12,
+       0,    19,    20,    11,    22,    23,    24,    25,    26,    27,
+      15,    11,    12,    16,    19,    20,     6,    22,    23,    24,
+      25,    26,    27,    15,    13,     6,    15,    19,    20,    16,
+      22,    23,    24,    25,    26,    27,    13,     3,    15,     5,
+       3,     7,    21,     9,   110,    11,    22,    23,    24,    25,
+      26,    27,    11,    12,   120,   121,    28,    29,    30,    31,
+       3,     4,    16,    28,    29,    16,    10,     8,    14,    14,
+      17,     3,    14,     8,     3,     6,    15,    17,    16,     6,
+       6,    17,     3,    17,    17,    -1,    14,   118,    -1,    -1,
+      -1,    21
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
      symbol of state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,    10,    11,    34,    35,     3,     3,     0,    35,    15,
-      15,    10,    11,    37,    38,    37,     3,    12,    14,    14,
-      38,    16,    16,     3,     5,     7,     8,    10,    39,    40,
-      41,    42,    46,    50,    51,    53,    54,    39,    21,    15,
-      15,    15,     3,    52,     9,    36,    39,     6,    44,    13,
-      13,    13,    17,     3,     4,    56,     3,     4,    18,    49,
-      49,     3,    12,    21,     3,     4,    55,    57,    17,    16,
-      28,    29,    30,    31,     3,    15,    14,    19,    20,    22,
-      23,    24,    25,    26,    27,    14,    14,     3,    56,    15,
-      13,    45,    56,    56,    56,    56,    49,    47,    49,    49,
-      49,    49,    49,    49,    49,    49,    16,    56,    58,    59,
-      39,    14,    16,    43,    12,    14,    17,    48,    39,    59,
-      39,    17,    17
+       0,    11,    12,    34,    35,    38,    36,     0,    35,     3,
+       3,    39,    37,    16,    16,    11,    12,    41,    42,    41,
+       3,    13,    15,    15,    42,     6,     6,     3,     5,     7,
+       9,    11,    43,    44,    45,    47,    52,    56,    57,    59,
+      60,    43,    21,    16,    16,    16,     3,    58,    10,    40,
+      43,    46,    14,    14,    14,    17,     3,     4,    61,    62,
+       3,     4,    18,    55,    48,     3,    13,    21,    61,    17,
+       8,    50,    16,    28,    29,    30,    31,     3,    16,    15,
+      19,    20,    22,    23,    24,    25,    26,    27,    55,    15,
+       3,    61,    14,     6,    63,    61,    61,    61,    61,    55,
+      53,    55,    55,    55,    55,    55,    55,    55,    55,    15,
+      51,    61,    64,    65,    15,     6,     6,    43,    13,    15,
+      54,    49,    17,    65,    43,    43,    17,    17
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    33,    34,    34,    35,    35,    36,    37,    37,    37,
-      38,    39,    39,    40,    40,    40,    41,    41,    43,    42,
-      45,    44,    47,    48,    46,    49,    49,    49,    49,    49,
-      49,    49,    49,    49,    49,    49,    49,    50,    50,    50,
-      51,    51,    52,    52,    53,    54,    55,    55,    55,    56,
-      56,    56,    56,    56,    56,    57,    58,    58,    59
+       0,    33,    34,    34,    36,    37,    35,    38,    39,    35,
+      40,    41,    41,    41,    42,    43,    43,    44,    44,    44,
+      45,    46,    45,    48,    49,    47,    51,    50,    53,    54,
+      52,    55,    55,    55,    55,    55,    55,    55,    55,    55,
+      55,    55,    55,    56,    56,    56,    57,    57,    58,    58,
+      59,    60,    61,    61,    61,    61,    61,    61,    61,    63,
+      62,    64,    64,    64,    65
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     1,     2,     8,     9,     3,     1,     3,     1,
-       2,     2,     1,     1,     1,     1,     1,     2,     0,     8,
-       0,     5,     0,     0,     9,     3,     3,     3,     3,     3,
-       3,     3,     3,     1,     1,     2,     4,     2,     2,     2,
-       2,     4,     1,     3,     3,     4,     1,     1,     1,     1,
-       1,     3,     3,     3,     3,     4,     1,     3,     1
+       0,     2,     1,     2,     0,     0,    10,     0,     0,    11,
+       3,     1,     3,     1,     2,     2,     1,     1,     1,     1,
+       1,     0,     3,     0,     0,     9,     0,     5,     0,     0,
+       9,     3,     3,     3,     3,     3,     3,     3,     3,     1,
+       1,     2,     4,     2,     2,     2,     2,     4,     1,     3,
+       3,     4,     1,     1,     1,     3,     3,     3,     3,     0,
+       5,     0,     1,     3,     1
 };
 
 
@@ -1439,106 +1447,165 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 2:
-#line 44 "Lex_et_Yacc/lex.y"
-               {printTable() ;}
-#line 1446 "lex.tab.c"
+  case 4:
+#line 52 "Lex_et_Yacc/lex.y"
+        { addProfondeur() ;
+          addVariable("!retadr", 0, 0, getProfondeur()) ;
+          addVariable("!retval", 0, 0, getProfondeur()) ;
+        }
+#line 1457 "lex.tab.c"
     break;
 
-  case 3:
-#line 45 "Lex_et_Yacc/lex.y"
-                  {printTable() ;}
-#line 1452 "lex.tab.c"
+  case 5:
+#line 56 "Lex_et_Yacc/lex.y"
+        {printf(":%s\n", (yyvsp[0].s)) ;}
+#line 1463 "lex.tab.c"
+    break;
+
+  case 6:
+#line 58 "Lex_et_Yacc/lex.y"
+    {printf("RET\n") ;  delProfondeur() ; delVariable() ;}
+#line 1469 "lex.tab.c"
+    break;
+
+  case 7:
+#line 61 "Lex_et_Yacc/lex.y"
+    {addProfondeur() ;
+    addVariable("!retadr", 0, 0, getProfondeur()) ;
+    addVariable("!retval", 0, 0, getProfondeur()) ;}
+#line 1477 "lex.tab.c"
+    break;
+
+  case 8:
+#line 64 "Lex_et_Yacc/lex.y"
+        { printf(":%s\n", (yyvsp[0].s)) ; }
+#line 1483 "lex.tab.c"
+    break;
+
+  case 9:
+#line 64 "Lex_et_Yacc/lex.y"
+                                                                                         {printf("RET\n") ; delProfondeur() ; delVariable() ;}
+#line 1489 "lex.tab.c"
     break;
 
   case 10:
-#line 61 "Lex_et_Yacc/lex.y"
-                    {addVariable((yyvsp[0].s), 0, 0, 0) ;}
-#line 1458 "lex.tab.c"
+#line 67 "Lex_et_Yacc/lex.y"
+                              { printf("COP 0, %d\n", lastOffset()) ; 
+                                delTemporaire();
+                                initialiser("!retval") ;}
+#line 1497 "lex.tab.c"
     break;
 
   case 14:
-#line 72 "Lex_et_Yacc/lex.y"
-               {printf("Structure if ou if else\n") ;}
-#line 1464 "lex.tab.c"
-    break;
-
-  case 15:
-#line 73 "Lex_et_Yacc/lex.y"
-            {printf("Structure While\n") ;}
-#line 1470 "lex.tab.c"
-    break;
-
-  case 18:
-#line 81 "Lex_et_Yacc/lex.y"
-                                              {addProfondeur() ;}
-#line 1476 "lex.tab.c"
-    break;
-
-  case 19:
-#line 81 "Lex_et_Yacc/lex.y"
-                                                                                    {delProfondeur() ; delVariable(getProfondeur())  ;}
-#line 1482 "lex.tab.c"
+#line 77 "Lex_et_Yacc/lex.y"
+                    {addVariable((yyvsp[0].s), 0, 0, 1) ;}
+#line 1503 "lex.tab.c"
     break;
 
   case 20:
-#line 85 "Lex_et_Yacc/lex.y"
-                      {addProfondeur() ;}
-#line 1488 "lex.tab.c"
+#line 93 "Lex_et_Yacc/lex.y"
+               {printf("L%d:\n", (yyvsp[0].nb));}
+#line 1509 "lex.tab.c"
     break;
 
   case 21:
-#line 85 "Lex_et_Yacc/lex.y"
-                                                            {delProfondeur() ; delVariable(getProfondeur())  ;}
-#line 1494 "lex.tab.c"
+#line 94 "Lex_et_Yacc/lex.y"
+        {int i = (yyvsp[0].nb) ;
+        (yyvsp[0].nb) = label++ ;
+        printf("JMF #0 L%d\n", (yyvsp[0].nb));
+        printf("L%d:\n", i);
+        }
+#line 1519 "lex.tab.c"
     break;
 
   case 22:
-#line 90 "Lex_et_Yacc/lex.y"
-        {   (yyvsp[-3].nb) = label++;
-            printf("JMF %d L%d\n", lastOffset(), (yyvsp[-3].nb));
-        }
-#line 1502 "lex.tab.c"
+#line 100 "Lex_et_Yacc/lex.y"
+        {printf("L%d:\n", (yyvsp[-2].nb)) ;}
+#line 1525 "lex.tab.c"
     break;
 
   case 23:
-#line 94 "Lex_et_Yacc/lex.y"
-        {addProfondeur() ;}
-#line 1508 "lex.tab.c"
+#line 103 "Lex_et_Yacc/lex.y"
+                      {(yyvsp[-1].nb) = label++ ;
+            printf("L%d\n", (yyvsp[-1].nb)) ;}
+#line 1532 "lex.tab.c"
     break;
 
   case 24:
-#line 96 "Lex_et_Yacc/lex.y"
-        {   printf("L%d:\n", (yyvsp[-8].nb));
-            delProfondeur() ;
-            delVariable(getProfondeur())  ;
-            delTemporaire() ;
-        }
-#line 1518 "lex.tab.c"
+#line 106 "Lex_et_Yacc/lex.y"
+            {(yyvsp[0].nb) = label++ ;
+            printf("JMF %d L%d\n", lastOffset(), (yyvsp[0].nb));
+            }
+#line 1540 "lex.tab.c"
     break;
 
   case 25:
-#line 103 "Lex_et_Yacc/lex.y"
+#line 109 "Lex_et_Yacc/lex.y"
+                          {delProfondeur() ; 
+            delVariable()  ;
+            printf("JMF #0 L%d\n", (yyvsp[-8].nb)) ;
+            printf("L%d\n", (yyvsp[-3].nb)) ;
+        }
+#line 1550 "lex.tab.c"
+    break;
+
+  case 26:
+#line 117 "Lex_et_Yacc/lex.y"
+                      {addProfondeur() ;}
+#line 1556 "lex.tab.c"
+    break;
+
+  case 27:
+#line 117 "Lex_et_Yacc/lex.y"
+                                                            {delProfondeur() ; delVariable()  ;}
+#line 1562 "lex.tab.c"
+    break;
+
+  case 28:
+#line 122 "Lex_et_Yacc/lex.y"
+        {   (yyvsp[-3].nb) = label++;
+            printf("JMF %d L%d\n", lastOffset(), (yyvsp[-3].nb));
+        }
+#line 1570 "lex.tab.c"
+    break;
+
+  case 29:
+#line 126 "Lex_et_Yacc/lex.y"
+        {addProfondeur() ;}
+#line 1576 "lex.tab.c"
+    break;
+
+  case 30:
+#line 128 "Lex_et_Yacc/lex.y"
+        {   delProfondeur() ;
+            delVariable()  ;
+            delTemporaire() ;
+            (yyval.nb) = (yyvsp[-8].nb) ;
+        }
+#line 1586 "lex.tab.c"
+    break;
+
+  case 31:
+#line 135 "Lex_et_Yacc/lex.y"
                                     {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("OR %d, %d, %d\n",adrs1, adrs1, adrs2) ;
                                     delTemporaire() ;
-                                    printTable() ;
 }
-#line 1529 "lex.tab.c"
+#line 1596 "lex.tab.c"
     break;
 
-  case 26:
-#line 109 "Lex_et_Yacc/lex.y"
+  case 32:
+#line 140 "Lex_et_Yacc/lex.y"
                               {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("MUL %d, %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
-#line 1538 "lex.tab.c"
+#line 1605 "lex.tab.c"
     break;
 
-  case 27:
-#line 113 "Lex_et_Yacc/lex.y"
+  case 33:
+#line 144 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     addTemporaire() ;
@@ -1548,11 +1615,11 @@ yyreduce:
                                     printf("OR %d, %d, %d\n",adrs1, adrs1, adrs3) ;
                                     delTemporaire() ;
                                     delTemporaire() ;}
-#line 1552 "lex.tab.c"
+#line 1619 "lex.tab.c"
     break;
 
-  case 28:
-#line 122 "Lex_et_Yacc/lex.y"
+  case 34:
+#line 153 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     addTemporaire() ;
@@ -1562,172 +1629,195 @@ yyreduce:
                                     printf("OR %d, %d, %d\n",adrs1, adrs1, adrs3) ;
                                     delTemporaire() ;
                                     delTemporaire() ;}
-#line 1566 "lex.tab.c"
+#line 1633 "lex.tab.c"
     break;
 
-  case 29:
-#line 131 "Lex_et_Yacc/lex.y"
+  case 35:
+#line 162 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("EQ %d, %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
-#line 1575 "lex.tab.c"
+#line 1642 "lex.tab.c"
     break;
 
-  case 30:
-#line 135 "Lex_et_Yacc/lex.y"
+  case 36:
+#line 166 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("EQ %d, %d\n", adrs2, adrs1) ;
-                                    printf("PUT %d, 1\n", adrs1) ;
+                                    printf("PUT %d, #1\n", adrs1) ;
                                     printf("SUB %d, %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
-#line 1586 "lex.tab.c"
+#line 1653 "lex.tab.c"
     break;
 
-  case 31:
-#line 141 "Lex_et_Yacc/lex.y"
+  case 37:
+#line 172 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("GT %d, %d, %d\n", adrs1, adrs1, adrs2) ;
                                     delTemporaire() ;}
-#line 1595 "lex.tab.c"
+#line 1662 "lex.tab.c"
     break;
 
-  case 32:
-#line 145 "Lex_et_Yacc/lex.y"
+  case 38:
+#line 176 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("LT %d, %d, %d\n", adrs1, adrs1, adrs2) ;
                                     delTemporaire() ;}
-#line 1604 "lex.tab.c"
+#line 1671 "lex.tab.c"
     break;
 
-  case 33:
-#line 149 "Lex_et_Yacc/lex.y"
+  case 39:
+#line 180 "Lex_et_Yacc/lex.y"
          {int adrs = findOffset((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
             printf("COP %d, %d\n", adrsTempo, adrs);}
-#line 1613 "lex.tab.c"
+#line 1680 "lex.tab.c"
     break;
 
-  case 34:
-#line 153 "Lex_et_Yacc/lex.y"
+  case 40:
+#line 184 "Lex_et_Yacc/lex.y"
          {int adrs = atoi((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("PUT %d, %d\n", adrsTempo, adrs);}
-#line 1622 "lex.tab.c"
+            printf("PUT %d, #%d\n", adrsTempo, adrs);}
+#line 1689 "lex.tab.c"
     break;
 
-  case 35:
-#line 157 "Lex_et_Yacc/lex.y"
+  case 41:
+#line 188 "Lex_et_Yacc/lex.y"
               {int adrs = findOffset((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("PUT %d, 1\n", adrsTempo) ;
+            printf("PUT %d, #1\n", adrsTempo) ;
             printf("SUB %d, %d\n", adrsTempo, adrs) ; }
-#line 1632 "lex.tab.c"
+#line 1699 "lex.tab.c"
     break;
 
-  case 36:
-#line 162 "Lex_et_Yacc/lex.y"
+  case 42:
+#line 193 "Lex_et_Yacc/lex.y"
                                 {int adrs = lastOffset() ;
                                 addTemporaire() ;
                                 int adrs1 = adrs+1 ;
                                 printf("COP %d, %d\n", adrs1, adrs) ;
-                                printf("PUT %d, 1\n", adrs) ;
+                                printf("PUT %d, #1\n", adrs) ;
                                 printf("SUB %d, %d\n", adrs1, adrs1) ;
                                 delTemporaire() ;
                                 }
-#line 1645 "lex.tab.c"
+#line 1712 "lex.tab.c"
     break;
 
-  case 41:
-#line 179 "Lex_et_Yacc/lex.y"
+  case 47:
+#line 210 "Lex_et_Yacc/lex.y"
                                 {int adrs2 = lastOffset() ;
                                 int adrs1 = adrs2-1 ;
                                 printf("COP %d, %d\n", adrs1, adrs2) ;
                                 init(adrs1) ;
                                 delTemporaire() ;}
-#line 1655 "lex.tab.c"
+#line 1722 "lex.tab.c"
     break;
 
-  case 42:
-#line 186 "Lex_et_Yacc/lex.y"
+  case 48:
+#line 217 "Lex_et_Yacc/lex.y"
              {addVariable((yyvsp[0].s), 0, 0, getProfondeur()) ;}
-#line 1661 "lex.tab.c"
+#line 1728 "lex.tab.c"
     break;
 
-  case 43:
-#line 187 "Lex_et_Yacc/lex.y"
+  case 49:
+#line 218 "Lex_et_Yacc/lex.y"
                        {addVariable((yyvsp[0].s), 0, 0, getProfondeur()) ;}
-#line 1667 "lex.tab.c"
+#line 1734 "lex.tab.c"
     break;
 
-  case 44:
-#line 189 "Lex_et_Yacc/lex.y"
+  case 50:
+#line 220 "Lex_et_Yacc/lex.y"
                                     {initialiser((yyvsp[-2].s)) ;
                                     int adrs2 = lastOffset() ;
                                     int adrs1 = findOffset((yyvsp[-2].s)) ;
                                     printf("COP %d, %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
-#line 1677 "lex.tab.c"
+#line 1744 "lex.tab.c"
     break;
 
-  case 49:
-#line 220 "Lex_et_Yacc/lex.y"
+  case 52:
+#line 244 "Lex_et_Yacc/lex.y"
              {int adrs = findOffset((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
             printf("COP %d, %d\n", adrsTempo, adrs);}
-#line 1686 "lex.tab.c"
-    break;
-
-  case 50:
-#line 224 "Lex_et_Yacc/lex.y"
-         {int adrs = atoi((yyvsp[0].s)) ;
-          addTemporaire() ;
-            int adrsTempo = lastOffset() ;
-            printf("PUT %d, %d\n", adrsTempo, adrs);}
-#line 1695 "lex.tab.c"
-    break;
-
-  case 51:
-#line 228 "Lex_et_Yacc/lex.y"
-                        {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
-                        printf("DIV %d, %d\n", adrs1, adrs2) ;
-                        delTemporaire() ;}
-#line 1703 "lex.tab.c"
-    break;
-
-  case 52:
-#line 231 "Lex_et_Yacc/lex.y"
-                        {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
-                        printf("MUL %d, %d\n", adrs1, adrs2) ;
-                        delTemporaire() ;}
-#line 1711 "lex.tab.c"
+#line 1753 "lex.tab.c"
     break;
 
   case 53:
-#line 234 "Lex_et_Yacc/lex.y"
+#line 248 "Lex_et_Yacc/lex.y"
+         {int adrs = atoi((yyvsp[0].s)) ;
+          addTemporaire() ;
+            int adrsTempo = lastOffset() ;
+            printf("PUT %d, #%d\n", adrsTempo, adrs);}
+#line 1762 "lex.tab.c"
+    break;
+
+  case 55:
+#line 253 "Lex_et_Yacc/lex.y"
+                        {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
+                        printf("DIV %d, %d\n", adrs1, adrs2) ;
+                        delTemporaire() ;}
+#line 1770 "lex.tab.c"
+    break;
+
+  case 56:
+#line 256 "Lex_et_Yacc/lex.y"
+                        {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
+                        printf("MUL %d, %d\n", adrs1, adrs2) ;
+                        delTemporaire() ;}
+#line 1778 "lex.tab.c"
+    break;
+
+  case 57:
+#line 259 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
                         printf("SUB %d, %d\n", adrs1, adrs2) ;
                         delTemporaire() ;}
-#line 1719 "lex.tab.c"
+#line 1786 "lex.tab.c"
     break;
 
-  case 54:
-#line 237 "Lex_et_Yacc/lex.y"
+  case 58:
+#line 262 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
                         printf("ADD %d, %d\n", adrs1, adrs2) ;
                         delTemporaire() ;}
-#line 1727 "lex.tab.c"
+#line 1794 "lex.tab.c"
+    break;
+
+  case 59:
+#line 275 "Lex_et_Yacc/lex.y"
+        { addProfondeur();
+          (yyvsp[0].nb) = lastOffset();
+          addVariable("!retadr'", 0, 0, getProfondeur()) ;
+          addVariable("!retval'", 0, 0, getProfondeur()) ;
+        }
+#line 1804 "lex.tab.c"
+    break;
+
+  case 60:
+#line 281 "Lex_et_Yacc/lex.y"
+        { delProfondeur();
+          delVariable();
+          printf("ADDBP %d\n", (yyvsp[-3].nb));
+          printf("CALL %s\n", (yyvsp[-4].s)) ;
+          printf("SUBBP %d\n", (yyvsp[-3].nb));
+          addTemporaire();
+          printf("COP %d %d\n", lastOffset(), lastOffset() + 1);
+        }
+#line 1817 "lex.tab.c"
     break;
 
 
-#line 1731 "lex.tab.c"
+#line 1821 "lex.tab.c"
 
       default: break;
     }
@@ -1959,7 +2049,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 259 "Lex_et_Yacc/lex.y"
+#line 299 "Lex_et_Yacc/lex.y"
 
 
 void yyerror(const char *msg) {

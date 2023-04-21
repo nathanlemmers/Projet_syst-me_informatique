@@ -1,9 +1,9 @@
 void main(void) {
-  int a, b ,c ;
-  if (a==1 && b==2 || c==3) {
-    print(a) ;
-    a = 123;
-    b = 456;
-  }
+  int a = fonction(a) ;
+}
+
+int fonction(int a) {
+  int b = 6 ;
+  return b ;
 }
 

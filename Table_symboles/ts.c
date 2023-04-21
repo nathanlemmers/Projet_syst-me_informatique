@@ -5,10 +5,11 @@
 
 
 pile* p = NULL;
-int profondeur = 0 ;
+int profondeur = 1 ;
 
 //Renvoie 0 si PAS initialisé, 1 sinon
 int isInit(char* name) {
+    if (p == NULL) return 0;
     pile *t = p ;
     if(strcmp(p->contenu.nom,name)==0) {
         p = t ;
@@ -19,9 +20,7 @@ int isInit(char* name) {
     while(p->suivant!= NULL) {
         if(strcmp(p->suivant->contenu.nom, name)==0) {
             p = t ;
-            if (p->suivant->contenu.init!=0){
-                return 1 ;
-            }
+            return (p->suivant->contenu.init!=0);
         }
         p = p->suivant ;
     }
@@ -72,7 +71,7 @@ int exist(char*n) {
 
 
 
-void delVariable(int profondeur) {
+void delVariable() {
     pile **n = &p;
     while (*n && (*n)->contenu.profondeur <= profondeur) {
         n = &((*n)->suivant);
@@ -83,7 +82,6 @@ void delVariable(int profondeur) {
         *n = NULL;
         n = s;
     }
-    printTable();
 }
 
 
@@ -197,4 +195,3 @@ void addProfondeur(){
 void delProfondeur(){
     profondeur--;
 }
-

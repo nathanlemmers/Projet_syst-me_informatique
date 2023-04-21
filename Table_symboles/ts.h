@@ -20,7 +20,7 @@ int exist(char *n) ;
 
 int isInit(char* nom) ;
 
-void delVariable(int profondeur) ;
+void delVariable() ;
 
 int findOffset(char* name) ;
 

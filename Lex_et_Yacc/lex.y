@@ -20,10 +20,13 @@ OR = variable*3
 LT = variable*3
 GT = variable*3
 EQU = variable*3
+JMF = variable(boolean), label de saut ON SAUTE SI C'EST FAUX, DONC variable=0
 */
+
+//Vérifier si le déclage du pointeur de pile doit pas etre de 1 de plus !
 %}
 
-
+%define parse.error verbose
 
 %code provides {
   int yylex (void);
@@ -35,30 +38,45 @@ EQU = variable*3
 %union { char *s; int nb; }
 
 %token <s> tID tNB ;
-%token <nb> tIF
-%token tELSE tWHILE tPRINT tRETURN tINT tVOID tCOMMA tSEMI tRPAR tLPAR tLBRACE tRBRACE tNOT tOR tAND tASSIGN tLE tGE tEQ tNE tGT tLT tDIV tMUL tSUB tADD tERROR
+%token <nb> tIF tLBRACE tWHILE
+%token tELSE tPRINT tRETURN tINT tVOID tCOMMA tSEMI tRPAR tLPAR tRBRACE tNOT tOR tAND tASSIGN tLE tGE tEQ tNE tGT tLT tDIV tMUL tSUB tADD tERROR
 %left tADD tSUB tOR tAND
 %left tMUL tDIV tLE tGE tEQ tNE tGT tLT
+%type <nb> si sinon
 %%
 
-totals : total {printTable() ;}
-    |totals total {printTable() ;}
+totals : total
+    |totals total
 ;
 
 total :
-    tVOID tID tLPAR arguments tRPAR tLBRACE structure tRBRACE
-    | tINT tID tLPAR arguments tRPAR tLBRACE structure retour tRBRACE
+    tVOID
+        { addProfondeur() ;
+          addVariable("!retadr", 0, 0, getProfondeur()) ;
+          addVariable("!retval", 0, 0, getProfondeur()) ;
+        } 
+    tID {printf(":%s\n", $3) ;}
+    tLPAR arguments tRPAR tLBRACE structure tRBRACE
+    {printf("RET\n") ;  delProfondeur() ; delVariable() ;}
+
+    |tINT 
+    {addProfondeur() ;
+    addVariable("!retadr", 0, 0, getProfondeur()) ;
+    addVariable("!retval", 0, 0, getProfondeur()) ;} 
+    tID { printf(":%s\n", $3) ; } tLPAR arguments tRPAR tLBRACE structure retour tRBRACE {printf("RET\n") ; delProfondeur() ; delVariable() ;}
 ; 
 
-retour : tRETURN variable tSEMI ;
-
+retour : tRETURN calcul tSEMI { printf("COP 0, %d\n", lastOffset()) ; 
+                                delTemporaire();
+                                initialiser("!retval") ;} 
+;
 
 arguments : argument
     |arguments tCOMMA argument
     |tVOID
 ;
 
-argument : tINT tID {addVariable($2, 0, 0, 0) ;}
+argument : tINT tID {addVariable($2, 0, 0, 1) ;}
 ;
 
 
@@ -69,20 +87,36 @@ structure :
 
 contenu : 
     action 
-    |Sicomplet {printf("Structure if ou if else\n") ;}
-    |tandis {printf("Structure While\n") ;} 
+    |Sicomplet
+    |tandis
 ;
 
 
-Sicomplet : si
-    |si sinon 
+Sicomplet : si {printf("L%d:\n", $1);} 
+    |si {int i = $1 ;
+        $1 = label++ ;
+        printf("JMF #0 L%d\n", $1);
+        printf("L%d:\n", i);
+        } 
+    sinon 
+        {printf("L%d:\n", $1) ;}
 ;
 
-tandis : tWHILE tLPAR condition tRPAR tLBRACE {addProfondeur() ;} structure tRBRACE {delProfondeur() ; delVariable(getProfondeur())  ;}
+tandis : tWHILE tLPAR {$1 = label++ ;
+            printf("L%d\n", $1) ;}
+        condition tRPAR tLBRACE 
+            {$6 = label++ ;
+            printf("JMF %d L%d\n", lastOffset(), $6);
+            }
+        structure tRBRACE {delProfondeur() ; 
+            delVariable()  ;
+            printf("JMF #0 L%d\n", $1) ;
+            printf("L%d\n", $6) ;
+        }
 ;
 
 
-sinon : tELSE tLBRACE {addProfondeur() ;} structure tRBRACE {delProfondeur() ; delVariable(getProfondeur())  ;}
+sinon : tELSE tLBRACE {addProfondeur() ;} structure tRBRACE {delProfondeur() ; delVariable()  ;}
 ;
 
 si : 
@@ -93,10 +127,10 @@ si :
     tLBRACE
         {addProfondeur() ;}
     structure tRBRACE
-        {   printf("L%d:\n", $1);
-            delProfondeur() ;
-            delVariable(getProfondeur())  ;
+        {   delProfondeur() ;
+            delVariable()  ;
             delTemporaire() ;
+            $$ = $1 ;
         }
 ;
 
@@ -104,7 +138,6 @@ condition : condition tOR condition {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("OR %d, %d, %d\n",adrs1, adrs1, adrs2) ;
                                     delTemporaire() ;
-                                    printTable() ;
 }
     |condition tAND condition {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
@@ -135,7 +168,7 @@ condition : condition tOR condition {int adrs2 = lastOffset() ;
     |condition tNE condition {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("EQ %d, %d\n", adrs2, adrs1) ;
-                                    printf("PUT %d, 1\n", adrs1) ;
+                                    printf("PUT %d, #1\n", adrs1) ;
                                     printf("SUB %d, %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
     |condition tGT condition {int adrs2 = lastOffset() ;
@@ -153,17 +186,17 @@ condition : condition tOR condition {int adrs2 = lastOffset() ;
     |tNB {int adrs = atoi($1) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("PUT %d, %d\n", adrsTempo, adrs);}
+            printf("PUT %d, #%d\n", adrsTempo, adrs);}
     |tNOT tID {int adrs = findOffset($2) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("PUT %d, 1\n", adrsTempo) ;
+            printf("PUT %d, #1\n", adrsTempo) ;
             printf("SUB %d, %d\n", adrsTempo, adrs) ; }
     |tNOT tLPAR condition tRPAR {int adrs = lastOffset() ;
                                 addTemporaire() ;
                                 int adrs1 = adrs+1 ;
                                 printf("COP %d, %d\n", adrs1, adrs) ;
-                                printf("PUT %d, 1\n", adrs) ;
+                                printf("PUT %d, #1\n", adrs) ;
                                 printf("SUB %d, %d\n", adrs1, adrs1) ;
                                 delTemporaire() ;
                                 }
@@ -198,13 +231,6 @@ afficher :
 ;
 
 
-
-variable : tID
-    |tNB 
-    |fonction
-; 
-
-
 /*comparateur : tOR    {printf("comparateur\n") ;}
     |tAND   {printf("comparateur\n") ;}
     |tLE    {printf("comparateur\n") ;}
@@ -224,7 +250,8 @@ calcul : tID {int adrs = findOffset($1) ;
     |tNB {int adrs = atoi($1) ;
           addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("PUT %d, %d\n", adrsTempo, adrs);}
+            printf("PUT %d, #%d\n", adrsTempo, adrs);}
+    | fonction
     |calcul tDIV calcul {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
                         printf("DIV %d, %d\n", adrs1, adrs2) ;
                         delTemporaire() ;}
@@ -246,9 +273,24 @@ calcul : tID {int adrs = findOffset($1) ;
     |tADD {printf("ADD\n") ;}
 ;*/
 
-fonction : tID tLPAR agrvs tRPAR ;
+fonction : tID tLPAR 
+        { addProfondeur();
+          $<nb>2 = lastOffset();
+          addVariable("!retadr'", 0, 0, getProfondeur()) ;
+          addVariable("!retval'", 0, 0, getProfondeur()) ;
+        }
+        agrvs tRPAR
+        { delProfondeur();
+          delVariable();
+          printf("ADDBP %d\n", $<nb>2);
+          printf("CALL %s\n", $1) ;
+          printf("SUBBP %d\n", $<nb>2);
+          addTemporaire();
+          printf("COP %d %d\n", lastOffset(), lastOffset() + 1);
+        } ;
 
-agrvs : agrv    
+agrvs : 
+    |agrv
     |agrvs tCOMMA agrv
 ;
 

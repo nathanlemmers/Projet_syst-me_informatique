@@ -52,17 +52,17 @@ extern int yydebug;
     tID = 258,
     tNB = 259,
     tIF = 260,
-    tELSE = 261,
+    tLBRACE = 261,
     tWHILE = 262,
-    tPRINT = 263,
-    tRETURN = 264,
-    tINT = 265,
-    tVOID = 266,
-    tCOMMA = 267,
-    tSEMI = 268,
-    tRPAR = 269,
-    tLPAR = 270,
-    tLBRACE = 271,
+    tELSE = 263,
+    tPRINT = 264,
+    tRETURN = 265,
+    tINT = 266,
+    tVOID = 267,
+    tCOMMA = 268,
+    tSEMI = 269,
+    tRPAR = 270,
+    tLPAR = 271,
     tRBRACE = 272,
     tNOT = 273,
     tOR = 274,
@@ -86,7 +86,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 35 "Lex_et_Yacc/lex.y"
+#line 36 "Lex_et_Yacc/lex.y"
  char *s; int nb; 
 
 #line 93 "lex.tab.h"
@@ -102,7 +102,7 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 /* "%code provides" blocks.  */
-#line 28 "Lex_et_Yacc/lex.y"
+#line 29 "Lex_et_Yacc/lex.y"
 
   int yylex (void);
   void yyerror (const char *);
