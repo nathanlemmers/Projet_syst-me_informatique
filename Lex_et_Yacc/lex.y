@@ -286,7 +286,7 @@ fonction : tID tLPAR
           printf("CALL %s\n", $1) ;
           printf("SUBBP %d\n", $<nb>2);
           addTemporaire();
-          printf("COP %d %d\n", lastOffset(), lastOffset() + 1);
+          printf("COP %d, %d\n", lastOffset(), lastOffset() + 1);
         } ;
 
 agrvs : 

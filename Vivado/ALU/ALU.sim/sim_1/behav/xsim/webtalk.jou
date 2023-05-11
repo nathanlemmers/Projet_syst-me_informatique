@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu May 11 12:04:01 2023
+# Process ID: 24609
+# Current directory: /home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.sim/sim_1/behav/xsim/xsim.dir/test_Banc_registres_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.sim/sim_1/behav/xsim/xsim.dir/test_Banc_registres_behav/webtalk/xsim_webtalk.tcl -notrace
