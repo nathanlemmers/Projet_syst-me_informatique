@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 16.05.2023 09:04:33
+-- Create Date: 16.05.2023 14:57:03
 -- Design Name: 
--- Module Name: memoire_instruction - Behavioral
+-- Module Name: test_pipeline - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -24,32 +24,51 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
-use IEEE.NUMERIC_STD.ALL;
+--use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity memoire_instruction is
-    Port ( a : in STD_LOGIC_VECTOR (7 downto 0);
-           CLK : in STD_LOGIC;
-           S : out STD_LOGIC_VECTOR (31 downto 0));
-end memoire_instruction;
+entity test_pipeline is
+--  Port ( );
+end test_pipeline;
 
-architecture Behavioral of memoire_instruction is
+architecture Behavioral of test_pipeline is
 
-type mem is array (0 to 255) of std_logic_vector (31 downto 0) ;
-signal M : mem := (x"0801AA00", x"07010100", x"01020103", others => (others => '0')) ;
+COMPONENT Pipeline
+Port (rst : in STD_LOGIC ;
+          CLK : in STD_LOGIC ;
+          S : out STD_LOGIC_VECTOR (31 downto 0));
+END COMPONENT ;
+
+signal RST : STD_LOGIC ;
+signal CLK : STD_LOGIC := '0' ;
+signal S : STD_LOGIC_VECTOR (31 downto 0) ;
+
+constant clock_period : time := 10 ns ; 
+
+
+
+
+
 
 begin
-process
-    begin   
-        wait until CLK'event and CLK='1' ;
-        S <= M(to_integer(unsigned(a))) ;
-        
-        
-end process ;
+
+label_uut : Pipeline PORT MAP (
+rst => RST,
+CLK => CLK ,
+S => S ) ;
+
+Clock_process: process 
+        begin 
+        CLK <= not(CLK) ;
+        wait for Clock_period/2 ;
+     end process ;
+     
+     
+     
 
 
 

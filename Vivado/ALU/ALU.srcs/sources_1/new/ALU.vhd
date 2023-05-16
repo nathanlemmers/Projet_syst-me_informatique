@@ -73,7 +73,7 @@ process (A,B,Ctrl_Alu, P)
             C <= '0' ;
         end if ;
      
-    elsif (Ctrl_Alu(2)='1') then
+    elsif (Ctrl_Alu=x"011") then
         C <= '0' ;
         P<= A *  B ;
         if (P(15 downto 8) /= x"00") then
