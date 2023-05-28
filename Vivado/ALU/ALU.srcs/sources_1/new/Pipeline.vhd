@@ -78,7 +78,7 @@ Port ( a : in STD_LOGIC_VECTOR (7 downto 0);
             S : out STD_LOGIC_VECTOR (7 downto 0));
   end COMPONENT ;
 
-signal a : STD_LOGIC_VECTOR (7 downto 0);
+signal a : STD_LOGIC_VECTOR (7 downto 0) := x"00"  ;
 signal S : STD_LOGIC_VECTOR (31 downto 0);
 signal lidi_a : STD_LOGIC_VECTOR(7 downto 0) ;
 signal lidi_op : STD_LOGIC_VECTOR (7 downto 0) ;
@@ -114,11 +114,13 @@ signal lc1 : STD_LOGIC_VECTOR (2 downto 0) ;
 signal lc2 : STD_LOGIC ;
 
 
+
 begin
 Label_uut: memoire_instruction PORT MAP( 
     a => a ,
     CLK => CLK ,
     S => S ) ;
+    
  Label_uut1:Banc_registres PORT MAP( 
             aa=> lidi_b(3 downto 0),        
             ab=> lidi_c(3 downto 0),   
@@ -128,8 +130,9 @@ Label_uut: memoire_instruction PORT MAP(
            W => write ,
            DATA => memre_b, 
            QA => qa ,
-           QB => diex_c
+           QB => qb
             ) ;
+
  
  Label_uut2 : ALU PORT MAP (
     A => diex_b ,
@@ -150,7 +153,7 @@ Label_uut: memoire_instruction PORT MAP(
  
     mux1 <= lidi_b when lidi_op=x"06" else qa;
     mux2 <= diex_b when diex_op=x"05" or diex_op=x"06" else S_Alu ;
-    write <= '0' when memre_op = x"07" or memre_op=x"08" else '1' ;
+    write <= '1' when memre_op=x"06" or memre_op=x"05" or memre_op = x"03" or memre_op=x"01" or memre_op=x"02" else '0' ;
     lc1 <= "001" when diex_op = x"01" else
             "010" when diex_op=x"02" else
             "011" when diex_op= x"03" else (others=>'0') ;
@@ -177,10 +180,10 @@ Label_uut: memoire_instruction PORT MAP(
                 
             
             
-            lidi_op <= S(7 downto 0) ;
-            lidi_a <= S(15 downto 8) ;
-            lidi_b <= S(23 downto 16) ;
-            lidi_c <= S(31 downto 24) ;
+            lidi_op <= S(31 downto 24) ;
+            lidi_b <= S(15 downto 8) ;
+            lidi_a <= S(23 downto 16) ;
+            lidi_c <= S(7 downto 0) ;
             
             diex_op <= lidi_op ;
             diex_a <= lidi_a ;
@@ -192,7 +195,7 @@ Label_uut: memoire_instruction PORT MAP(
             exmem_b <= mux2;
             
             memre_a <= exmem_a ;
-            memre_op <= memre_op ;
+            memre_op <= exmem_op ;
             memre_b <= mux4 ;
             
             

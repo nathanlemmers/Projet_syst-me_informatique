@@ -40,12 +40,12 @@ architecture Behavioral of test_pipeline is
 COMPONENT Pipeline
 Port (rst : in STD_LOGIC ;
           CLK : in STD_LOGIC ;
-          S : out STD_LOGIC_VECTOR (31 downto 0));
+          B : out STD_LOGIC_VECTOR (7 downto 0));
 END COMPONENT ;
 
 signal RST : STD_LOGIC ;
 signal CLK : STD_LOGIC := '0' ;
-signal S : STD_LOGIC_VECTOR (31 downto 0) ;
+signal B : STD_LOGIC_VECTOR (7 downto 0) ;
 
 constant clock_period : time := 10 ns ; 
 
@@ -59,7 +59,7 @@ begin
 label_uut : Pipeline PORT MAP (
 rst => RST,
 CLK => CLK ,
-S => S ) ;
+B => B ) ;
 
 Clock_process: process 
         begin 

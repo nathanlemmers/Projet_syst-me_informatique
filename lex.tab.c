@@ -1486,7 +1486,7 @@ yyreduce:
 
   case 9:
 #line 66 "Lex_et_Yacc/lex.y"
-                                                                                         {printf("RET\n") ; delProfondeur() ; delVariable() ; printTable();}
+                                                                                         {printf("RET\n") ; delProfondeur() ; delVariable() ;}
 #line 1491 "lex.tab.c"
     break;
 

@@ -52,7 +52,7 @@ begin
 process (A,B,Ctrl_Alu, P)
 
     begin
-    if (Ctrl_Alu(0)='1') then
+    if (Ctrl_Alu=x"1") then
         O <= '0' ;
         P<=(x"00"&A) +  (x"00"&B) ;
         
@@ -63,7 +63,7 @@ process (A,B,Ctrl_Alu, P)
         end if ;
         
         
-    elsif (Ctrl_Alu(1)='1') then
+    elsif (Ctrl_Alu=x"3") then
         O <= '0' ;
         P <= (x"00" & A) -  (x"00"&B) ;
         
@@ -73,7 +73,7 @@ process (A,B,Ctrl_Alu, P)
             C <= '0' ;
         end if ;
      
-    elsif (Ctrl_Alu=x"011") then
+    elsif (Ctrl_Alu=x"2") then
         C <= '0' ;
         P<= A *  B ;
         if (P(15 downto 8) /= x"00") then

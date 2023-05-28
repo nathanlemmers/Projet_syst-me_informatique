@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue May 16 15:21:26 2023
-# Process ID: 51566
+# Start of session at: Sun May 28 17:09:16 2023
+# Process ID: 265125
 # Current directory: /home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.runs/synth_1
 # Command line: vivado -log Pipeline.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Pipeline.tcl
 # Log file: /home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.runs/synth_1/Pipeline.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 51628 
+INFO: Helper process launched with PID 265207 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.277 ; gain = 83.699 ; free physical = 58105 ; free virtual = 70177
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1255.273 ; gain = 83.809 ; free physical = 109370 ; free virtual = 137817
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'Pipeline' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:41]
 INFO: [Synth 8-3491] module 'memoire_instruction' declared at '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/memoire_instruction.vhd:34' bound to instance 'Label_uut' of component 'memoire_instruction' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:118]
@@ -37,10 +37,10 @@ WARNING: [Synth 8-3936] Found unconnected internal register 'memre_a_reg' and it
 WARNING: [Synth 8-3848] Net qb in module/entity Pipeline does not have driver. [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:102]
 INFO: [Synth 8-256] done synthesizing module 'Pipeline' (5#1) [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:41]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1312.902 ; gain = 141.324 ; free physical = 58094 ; free virtual = 70167
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.898 ; gain = 141.434 ; free physical = 109376 ; free virtual = 137823
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1312.902 ; gain = 141.324 ; free physical = 58106 ; free virtual = 70180
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.898 ; gain = 141.434 ; free physical = 109370 ; free virtual = 137818
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -48,7 +48,7 @@ Start Loading Part and Timing Information
 Loading part: xc7a35tcpg236-1
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1320.906 ; gain = 149.328 ; free physical = 58106 ; free virtual = 70180
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1320.902 ; gain = 149.438 ; free physical = 109368 ; free virtual = 137817
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "M" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "P_reg[15]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -168,7 +168,7 @@ INFO: [Synth 8-5546] ROM "M_reg[158]" won't be mapped to RAM because it is too s
 INFO: [Synth 8-5546] ROM "M_reg[157]" won't be mapped to RAM because it is too sparse
 INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1344.930 ; gain = 173.352 ; free physical = 58058 ; free virtual = 70131
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1338.160 ; gain = 166.695 ; free physical = 109305 ; free virtual = 137754
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -449,7 +449,7 @@ INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][5]' (FDRE) to 'Label_
 INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][6]' (FDRE) to 'Label_uut1/P_reg[3][6]'
 INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][7]' (FDRE) to 'Label_uut1/P_reg[3][7]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:19 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70031
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109214 ; free virtual = 137659
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -462,7 +462,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70031
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109205 ; free virtual = 137650
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -490,7 +490,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uu
 INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[2][6]' (FDRE) to 'Label_uut1/P_reg[3][6]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[3][6] )
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70032
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109205 ; free virtual = 137650
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -514,7 +514,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70032
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137634
 ---------------------------------------------------------------------------------
 CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[7] with 1st driver pin 'i_36/O' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:55]
 CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[7] with 2nd driver pin 'diex_c_reg[7]/Q' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:131]
@@ -543,7 +543,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70032
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137633
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -555,25 +555,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70032
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70032
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70032
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70032
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109187 ; free virtual = 137633
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -627,11 +627,11 @@ Report Instance Areas:
 |4     |  Label_uut2 |ALU                 |    10|
 +------+-------------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57954 ; free virtual = 70032
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109186 ; free virtual = 137631
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 16 critical warnings and 2199 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1445.992 ; gain = 274.414 ; free physical = 57964 ; free virtual = 70042
-Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:20 . Memory (MB): peak = 1446.000 ; gain = 274.414 ; free physical = 57979 ; free virtual = 70057
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109185 ; free virtual = 137631
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.301 ; gain = 280.828 ; free physical = 109198 ; free virtual = 137643
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -643,9 +643,9 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 247 Infos, 104 Warnings, 16 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:22 . Memory (MB): peak = 1568.020 ; gain = 408.195 ; free physical = 57941 ; free virtual = 70018
+synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:35 . Memory (MB): peak = 1567.320 ; gain = 407.500 ; free physical = 109187 ; free virtual = 137631
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.runs/synth_1/Pipeline.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Pipeline_utilization_synth.rpt -pb Pipeline_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1592.031 ; gain = 0.000 ; free physical = 57936 ; free virtual = 70014
-INFO: [Common 17-206] Exiting Vivado at Tue May 16 15:21:55 2023...
+report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1591.332 ; gain = 0.000 ; free physical = 109180 ; free virtual = 137625
+INFO: [Common 17-206] Exiting Vivado at Sun May 28 17:10:01 2023...

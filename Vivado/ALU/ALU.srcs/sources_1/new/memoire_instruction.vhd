@@ -40,7 +40,7 @@ end memoire_instruction;
 architecture Behavioral of memoire_instruction is
 
 type mem is array (0 to 255) of std_logic_vector (31 downto 0) ;
-signal M : mem := (x"0801AA00", x"07010100", x"01020103", others => (others => '0')) ;
+signal M : mem := (x"06010100", x"06020300",x"00000000",x"00000000",x"00000000", x"01030102", others => (others => '0')) ;
 
 begin
 process
