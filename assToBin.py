@@ -1,39 +1,41 @@
-instruction_mapping = {
-    'ADD': '01',
-    'MUL': '02',
-    'SUB': '03',
-    'COP': '05',
-    'PUT': '06',
-    'LOAD': '07',
-    'STORE': '08',
+import sys
+import math
 
-    # Ajoutez d'autres instructions ici
-}
 
-def convert_instruction_to_binary(instruction):
-    opcode = instruction[0]
-    arguments = instruction[1:]
-    binary_instruction = instruction_mapping.get(opcode, '')
-    for argument in arguments:
-        binary_instruction += argument.zfill(2)  # Ajoute les arguments formatés sur 2 caractères
-    return binary_instruction
+lines = open ("test.S", "r").readlines()
+lines = [line.split() for line in lines]
+prog = lines
 
-def process_assembly_file(input_file, output_file):
-    with open(input_file, 'r') as file:
-        lines = file.readlines()
 
-    binary_instructions = []
-    for line in lines:
-        instruction = line.strip().split(' ')
-        binary_instruction = convert_instruction_to_binary(instruction)
-        binary_instructions.append(binary_instruction)
+for pc in range(len(prog)) :
+    if (prog[pc][0]) == "ADD" :
+        val = (1, int(prog[pc][1]), int(prog[pc][2]), int(prog[pc][3]))
+        print("x\"%02x%02x%02x%02x\"" % tuple(val))
+    elif (prog[pc][0]) == "MUL" :
+        val = (2, int(prog[pc][1]), int(prog[pc][2]), int(prog[pc][3]))
+        print("x\"%02x%02x%02x%02x\"" % tuple(val))    
+    elif (prog[pc][0]) == "SUB" :
+        val = (3, int(prog[pc][1]), int(prog[pc][2]), int(prog[pc][3]))
+        print("x\"%02x%02x%02x%02x\"" % tuple(val))
+    elif (prog[pc][0]) == "COP" :
+        val = (5, int(prog[pc][1]), int(prog[pc][2]), 0)
+        print("x\"%02x%02x%02x%02x\"" % tuple(val))
+    elif (prog[pc][0]) == "PUT" :
+        val = (6, int(prog[pc][1]), int(prog[pc][2]), 0)
+        print("x\"%02x%02x%02x%02x\"" % tuple(val))
+    elif (prog[pc][0]) == "LOAD" :
+        val = (7, int(prog[pc][1]), int(prog[pc][2]), 0)
+        print("x\"%02x%02x%02x%02x\"" % tuple(val))
+    elif (prog[pc][0]) == "STORE" :
+        val = (8, int(prog[pc][1]), int(prog[pc][2]), 0)
+        print("x\"%02x%02x%02x%02x\"" % tuple(val))
 
-    binary_code = ''.join(binary_instructions)
 
-    with open(output_file, 'w') as file:
-        file.write(binary_code)
+# Rediriger les sorties print vers un fichier
+sys.stdout = open('outputbinary.txt', 'w')
 
-# Exemple d'utilisation
-input_file = 'test.S'
-output_file = 'outputbinary.txt'
-process_assembly_file(input_file, output_file)
+# Vos instructions de print
+
+# Restaurer la sortie standard
+sys.stdout.close()
+sys.stdout = sys.__stdout__

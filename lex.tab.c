@@ -1492,7 +1492,7 @@ yyreduce:
 
   case 10:
 #line 69 "Lex_et_Yacc/lex.y"
-                              { printf("LOAD 00, %d\n", lastOffset()) ; 
+                              { printf("LOAD 00 %d\n", lastOffset()) ; 
                                 delTemporaire();
                                 initialiser("!retval") ;}
 #line 1499 "lex.tab.c"
@@ -1591,7 +1591,7 @@ yyreduce:
 #line 137 "Lex_et_Yacc/lex.y"
                                     {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("OR %d, %d, %d\n",adrs1, adrs1, adrs2) ;
+                                    printf("OR %d %d %d\n",adrs1, adrs1, adrs2) ;
                                     delTemporaire() ;
 }
 #line 1598 "lex.tab.c"
@@ -1601,7 +1601,7 @@ yyreduce:
 #line 142 "Lex_et_Yacc/lex.y"
                               {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("MUL %d, %d\n", adrs1, adrs2) ;
+                                    printf("MUL %d %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
 #line 1607 "lex.tab.c"
     break;
@@ -1612,9 +1612,9 @@ yyreduce:
                                     int adrs1 = adrs2-1 ;
                                     addTemporaire() ;
                                     int adrs3 = lastOffset() ;
-                                    printf("LT %d, %d, %d\n",adrs3, adrs1, adrs2) ;
-                                    printf("EQ %d, %d, %d\n",adrs1, adrs1, adrs2) ;
-                                    printf("OR %d, %d, %d\n",adrs1, adrs1, adrs3) ;
+                                    printf("LT %d %d %d\n",adrs3, adrs1, adrs2) ;
+                                    printf("EQ %d %d %d\n",adrs1, adrs1, adrs2) ;
+                                    printf("OR %d %d %d\n",adrs1, adrs1, adrs3) ;
                                     delTemporaire() ;
                                     delTemporaire() ;}
 #line 1621 "lex.tab.c"
@@ -1626,9 +1626,9 @@ yyreduce:
                                     int adrs1 = adrs2-1 ;
                                     addTemporaire() ;
                                     int adrs3 = lastOffset() ;
-                                    printf("GT %d, %d, %d\n",adrs3, adrs1, adrs2) ;
-                                    printf("EQ %d, %d, %d\n",adrs1, adrs1, adrs2) ;
-                                    printf("OR %d, %d, %d\n",adrs1, adrs1, adrs3) ;
+                                    printf("GT %d %d %d\n",adrs3, adrs1, adrs2) ;
+                                    printf("EQ %d %d %d\n",adrs1, adrs1, adrs2) ;
+                                    printf("OR %d %d %d\n",adrs1, adrs1, adrs3) ;
                                     delTemporaire() ;
                                     delTemporaire() ;}
 #line 1635 "lex.tab.c"
@@ -1638,7 +1638,7 @@ yyreduce:
 #line 164 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("EQ %d, %d\n", adrs1, adrs2) ;
+                                    printf("EQ %d %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
 #line 1644 "lex.tab.c"
     break;
@@ -1647,9 +1647,9 @@ yyreduce:
 #line 168 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("EQ %d, %d\n", adrs2, adrs1) ;
-                                    printf("PUT %d, #1\n", adrs1) ;
-                                    printf("SUB %d, %d\n", adrs1, adrs2) ;
+                                    printf("EQ %d %d\n", adrs2, adrs1) ;
+                                    printf("PUT %d 1\n", adrs1) ;
+                                    printf("SUB %d %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
 #line 1655 "lex.tab.c"
     break;
@@ -1658,7 +1658,7 @@ yyreduce:
 #line 174 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("GT %d, %d, %d\n", adrs1, adrs1, adrs2) ;
+                                    printf("GT %d %d %d\n", adrs1, adrs1, adrs2) ;
                                     delTemporaire() ;}
 #line 1664 "lex.tab.c"
     break;
@@ -1667,7 +1667,7 @@ yyreduce:
 #line 178 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("LT %d, %d, %d\n", adrs1, adrs1, adrs2) ;
+                                    printf("LT %d %d %d\n", adrs1, adrs1, adrs2) ;
                                     delTemporaire() ;}
 #line 1673 "lex.tab.c"
     break;
@@ -1677,7 +1677,7 @@ yyreduce:
          {int adrs = findOffset((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("COP %d, %d\n", adrsTempo, adrs);}
+            printf("COP %d %d\n", adrsTempo, adrs);}
 #line 1682 "lex.tab.c"
     break;
 
@@ -1686,7 +1686,7 @@ yyreduce:
          {int adrs = atoi((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("PUT %d, #%d\n", adrsTempo, adrs);}
+            printf("PUT %d %d\n", adrsTempo, adrs);}
 #line 1691 "lex.tab.c"
     break;
 
@@ -1695,8 +1695,8 @@ yyreduce:
               {int adrs = findOffset((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("PUT %d, #1\n", adrsTempo) ;
-            printf("SUB %d, %d\n", adrsTempo, adrs) ; }
+            printf("PUT %d 1\n", adrsTempo) ;
+            printf("SUB %d %d\n", adrsTempo, adrs) ; }
 #line 1701 "lex.tab.c"
     break;
 
@@ -1705,9 +1705,9 @@ yyreduce:
                                 {int adrs = lastOffset() ;
                                 addTemporaire() ;
                                 int adrs1 = adrs+1 ;
-                                printf("COP %d, %d\n", adrs1, adrs) ;
-                                printf("PUT %d, #1\n", adrs) ;
-                                printf("SUB %d, %d\n", adrs1, adrs1) ;
+                                printf("COP %d %d\n", adrs1, adrs) ;
+                                printf("PUT %d 1\n", adrs) ;
+                                printf("SUB %d %d\n", adrs1, adrs1) ;
                                 delTemporaire() ;
                                 }
 #line 1714 "lex.tab.c"
@@ -1717,8 +1717,8 @@ yyreduce:
 #line 212 "Lex_et_Yacc/lex.y"
                                 {int adrs2 = lastOffset() ;
                                 int adrs1 = adrs2-1 ;
-                                printf("LOAD r0, %d\n", adrs2) ;
-                                printf("STORE %d, r0\n", adrs1) ;
+                                printf("LOAD 00 %d\n", adrs2) ;
+                                printf("STORE %d 00\n", adrs1) ;
                                 init(adrs1) ;
                                 delTemporaire() ;}
 #line 1725 "lex.tab.c"
@@ -1741,8 +1741,8 @@ yyreduce:
                                     {initialiser((yyvsp[-2].s)) ;
                                     int adrs2 = lastOffset() ;
                                     int adrs1 = findOffset((yyvsp[-2].s)) ;
-                                    printf("LOAD r0, %d\n", adrs2) ;
-                                    printf("STORE %d, r0\n", adrs1) ;
+                                    printf("LOAD 00 %d\n", adrs2) ;
+                                    printf("STORE %d 00\n", adrs1) ;
                                     delTemporaire() ;}
 #line 1748 "lex.tab.c"
     break;
@@ -1752,8 +1752,8 @@ yyreduce:
              {int adrs = findOffset((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("LOAD 01, %d\n", adrs);
-            printf("STORE %d, 01\n", adrsTempo);}
+            printf("LOAD 01 %d\n", adrs);
+            printf("STORE %d 01\n", adrsTempo);}
 #line 1758 "lex.tab.c"
     break;
 
@@ -1762,8 +1762,8 @@ yyreduce:
          {int adrs = atoi((yyvsp[0].s)) ;
           addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("PUT 01, %d\n", adrs);
-            printf("STORE %d, 01\n", adrsTempo) ;}
+            printf("PUT 01 %d\n", adrs);
+            printf("STORE %d 01\n", adrsTempo) ;}
 #line 1768 "lex.tab.c"
     break;
 
@@ -1771,7 +1771,7 @@ yyreduce:
 #line 259 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
 
-                        printf("DIV %d, %d\n", adrs1, adrs2) ;
+                        printf("DIV %d %d\n", adrs1, adrs2) ;
                         delTemporaire() ;}
 #line 1777 "lex.tab.c"
     break;
@@ -1779,10 +1779,10 @@ yyreduce:
   case 56:
 #line 263 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
-                        printf("LOAD 01, %d\n", adrs1) ;
-                        printf("LOAD 02, %d\n",adrs2) ;
-                        printf("MUL 01, 01, 02\n") ;
-                        printf("STORE %d, 01\n", adrs1) ;
+                        printf("LOAD 01 %d\n", adrs1) ;
+                        printf("LOAD 02 %d\n",adrs2) ;
+                        printf("MUL 01 01 02\n") ;
+                        printf("STORE %d 01\n", adrs1) ;
                         delTemporaire() ;}
 #line 1788 "lex.tab.c"
     break;
@@ -1790,10 +1790,10 @@ yyreduce:
   case 57:
 #line 269 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
-                        printf("LOAD 01, %d\n", adrs1) ;
-                        printf("LOAD 02, %d\n",adrs2) ;
-                        printf("SUB 01, 01, 02\n") ;
-                        printf("STORE %d, 01\n", adrs1) ;
+                        printf("LOAD 01 %d\n", adrs1) ;
+                        printf("LOAD 02 %d\n",adrs2) ;
+                        printf("SUB 01 01 02\n") ;
+                        printf("STORE %d 01\n", adrs1) ;
                         delTemporaire() ;}
 #line 1799 "lex.tab.c"
     break;
@@ -1801,10 +1801,10 @@ yyreduce:
   case 58:
 #line 275 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
-                        printf("LOAD 01, %d\n", adrs1) ;
-                        printf("LOAD 02, %d\n",adrs2) ;
-                        printf("ADD 01, 01, 02\n") ;
-                        printf("STORE %d, 01\n", adrs1) ;
+                        printf("LOAD 01 %d\n", adrs1) ;
+                        printf("LOAD 02 %d\n",adrs2) ;
+                        printf("ADD 01 01 02\n") ;
+                        printf("STORE %d 01\n", adrs1) ;
                         delTemporaire() ;}
 #line 1810 "lex.tab.c"
     break;
@@ -1827,7 +1827,7 @@ yyreduce:
           printf("CALL %s\n", (yyvsp[-4].s)) ;
           printf("SUBBP %d\n", (yyvsp[-3].nb));
           addTemporaire();
-          printf("COP %d, %d\n", lastOffset(), lastOffset() + 1);
+          printf("COP %d %d\n", lastOffset(), lastOffset() + 1);
         }
 #line 1833 "lex.tab.c"
     break;
