@@ -56,3 +56,5 @@ sys.stdout = open('outputbinary.txt', 'w')
 # Restaurer la sortie standard
 sys.stdout.close()
 sys.stdout = sys.__stdout__
+
+#Commande pour lancer et utiliser : python assToBin.py > outputbinary.txt
