@@ -44,6 +44,9 @@ read_vhdl -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc /home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/constrs_1/new/process.xdc
+set_property used_in_implementation false [get_files /home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/constrs_1/new/process.xdc]
+
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]
 

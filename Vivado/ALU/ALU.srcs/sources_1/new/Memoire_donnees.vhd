@@ -52,10 +52,12 @@ process
              M<= (others => (others => '0')) ;
              else 
              if (RW='0') then 
-             M(to_integer(unsigned(a))) <= I ;  --STORE      
-             else 
-             S <= M(to_integer(unsigned(a))) ;  --LOAD          
+             M(to_integer(unsigned(a))) <= I ;  --STORE               
              end if ;
         end if ;  
 end process ;
+
+S <= M(to_integer(unsigned(a))) ;
+
+
 end Behavioral;

@@ -62,7 +62,7 @@ end COMPONENT ;
 COMPONENT ALU 
 Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
            B : in STD_LOGIC_VECTOR (7 downto 0);
-           Ctrl_Alu : in STD_LOGIC_VECTOR (2 downto 0);
+           Ctrl_Alu : in STD_LOGIC_VECTOR (3 downto 0);
            O : out STD_LOGIC;
            Z : out STD_LOGIC;
            C : out STD_LOGIC;
@@ -94,6 +94,7 @@ signal exmem_a : STD_LOGIC_VECTOR (7 downto 0) ;
 signal exmem_op : STD_LOGIC_VECTOR (7 downto 0) := x"00"  ;
 signal exmem_b : STD_LOGIC_VECTOR (7 downto 0) ;
 
+
 signal memre_a : STD_LOGIC_VECTOR (7 downto 0) ;
 signal memre_op : STD_LOGIC_VECTOR (7 downto 0) := x"00"  ;
 signal memre_b : STD_LOGIC_VECTOR (7 downto 0) ;
@@ -110,7 +111,7 @@ signal mux1 : STD_LOGIC_VECTOR (7 downto 0) ;
 signal mux2 : STD_LOGIC_VECTOR (7 downto 0) ;
 signal mux3 : STD_LOGIC_VECTOR (7 downto 0) ;
 signal mux4 : STD_LOGIC_VECTOR (7 downto 0) ;
-signal lc1 : STD_LOGIC_VECTOR (2 downto 0) ;
+signal lc1 : STD_LOGIC_VECTOR (3 downto 0) ;
 signal lc2 : STD_LOGIC ;
 
 
@@ -123,6 +124,7 @@ signal alea : STD_LOGIC := '0';
 
 
 signal compteur : STD_LOGIC_VECTOR (7 downto 0) := x"00" ;
+signal cmp1 : STD_LOGIC_VECTOR (7 downto 0) := x"00" ;
 
 
 
@@ -166,21 +168,20 @@ Label_uut: memoire_instruction PORT MAP(
  );
  
  
-    mux1 <= lidi_b when lidi_op=x"06" else qa;
+    mux1 <= lidi_b when lidi_op=x"06" or lidi_op=x"07" else qa;
     mux2 <= diex_b when diex_op=x"05" or diex_op=x"06" or diex_op=x"07" or diex_op=x"08" else S_Alu ;
-    write <= '1' when memre_op=x"06" or memre_op=x"05" or memre_op = x"03" or memre_op=x"01" or memre_op=x"02" else '0' ;
-    lc1 <= "001" when diex_op = x"01" else
-            "010" when diex_op=x"02" else
-            "011" when diex_op= x"03" else (others=>'0') ;
+    write <= '1' when memre_op=x"06" or memre_op=x"05" or memre_op = x"03" or memre_op=x"01" or memre_op=x"02" or memre_op=x"07" or memre_op=x"09" or memre_op=x"0a" or memre_op=x"0b" else '0' ;
+    lc1 <= diex_op(3 downto 0) when (diex_op=x"01" or diex_op=x"02" or diex_op= x"03" or diex_op= x"09" or diex_op= x"0a" or diex_op= x"0b") else "0000" ;
+
             
-    mux3 <= exmem_a when exmem_op = x"07" or exmem_op=x"08" else exmem_b ;
+    mux3 <= exmem_a when exmem_op=x"08" else exmem_b ;
     lc2 <= '0' when exmem_op = x"08" else '1' ;
     
     mux4 <= S_memoire when exmem_op =x"07" else exmem_b ;
     
-    readli <= '1' when lidi_op/=x"00" and lidi_op/=x"07" and lidi_op/=x"06" else '0' ;
+    readli <= '1' when lidi_op/=x"00" and lidi_op/=x"07" and lidi_op/=x"06"  else '0' ;
     writedi <= '1' when diex_op/=x"08" and diex_op/=x"00" else '0' ;
-    writeex <= '1' when exmem_op/=x"08" and exmem_op/=x"00" else '0' ;
+    writeex <= '1' when exmem_op/=x"07" and exmem_op/=x"00" else '0' ;
     alea <= '1' when (readli='1' and ((writedi='1' and (lidi_b = diex_a or lidi_c=diex_a)) or (writeex='1' and (lidi_b=exmem_a or lidi_c=exmem_a)))) else '0' ;
      
  
@@ -188,45 +189,70 @@ Label_uut: memoire_instruction PORT MAP(
         begin 
     
             wait until (CLK'event) and (CLK='1') ;
-            if (RST ='0') then 
+            if (RST ='0') then --1
                 a <= x"00" ;
-            else 
+            else --1
             
-            if (alea='1' or compteur>x"00") then
-                diex_op <= x"00" ;
-                diex_b <= x"00" ;
-                diex_a <= x"00" ;
-                diex_c <= x"00" ; 
-                
-                lidi_op <= lidi_op ;
-                lidi_b <= lidi_b ;
-                lidi_a <= lidi_a ;
-                lidi_c <= lidi_c ;
-                if compteur=x"02" then
-                    compteur<=x"00" ;
-                else 
-                    compteur<=compteur+1 ;
-                end if ;
-                
-                
-            else 
             
-                if (a=x"FF") then
-                    a <= x"00";
-                else
-                    a <= a+1 ;
-                end if ;
-                diex_op <= lidi_op ;
-                diex_a <= lidi_a ;
-                diex_b <= mux1 ;
-                diex_c <= qb ;
-                
-                lidi_op <= S(31 downto 24) ;
-                lidi_b <= S(15 downto 8) ;
-                lidi_a <= S(23 downto 16) ;
-                lidi_c <= S(7 downto 0) ;
+            
+            
+                if (alea='1' or compteur>x"00") then --2
+                    diex_op <= x"00" ;
+                    diex_b <= x"00" ;
+                    diex_a <= x"00" ;
+                    diex_c <= x"00" ; 
                     
-            end if ;
+                    lidi_op <= lidi_op ;
+                    lidi_b <= lidi_b ;
+                    lidi_a <= lidi_a ;
+                    lidi_c <= lidi_c ;
+                    
+                    if compteur=x"02" then --3
+                        compteur<=x"00" ;
+                    else  --3
+                        compteur<=compteur+1 ;
+                    end if ;  --3
+                
+                
+                 else --2
+                    
+                    if ((diex_op=x"0c" and diex_b=x"00")  or (cmp1>x"00"))   then --3
+                            
+                            diex_op <= x"00" ;
+                            diex_a <= x"00" ;
+                            diex_b <= x"00" ;
+                            diex_c <= x"00" ;
+                            diex_op <= x"00" ;
+                            lidi_a <= x"00" ;
+                            lidi_b <= x"00" ;
+                            lidi_c <= x"00" ;
+                     
+                     if cmp1=x"01" then --3
+                        cmp1<=x"00" ;
+                    else  --3
+                         a <= diex_a ;
+                        cmp1<=cmp1+1 ;
+                    end if ;       
+                            
+                            
+                            
+                    elsif (a=x"FF") then --3
+                        a <= x"00";
+                    else --3
+                        a <= a+1 ;
+                        diex_op <= lidi_op ;
+                        diex_a <= lidi_a ;
+                        diex_b <= mux1 ;
+                        diex_c <= qb ;
+                        
+                    end if ; --3
+                        lidi_op <= S(31 downto 24) ;
+                        lidi_b <= S(15 downto 8) ;
+                        lidi_a <= S(23 downto 16) ;
+                        lidi_c <= S(7 downto 0) ;
+                    
+                        
+                 end if ; --2
            
              
             
@@ -235,6 +261,8 @@ Label_uut: memoire_instruction PORT MAP(
             exmem_op <= diex_op;
             exmem_a <= diex_a;
             exmem_b <= mux2;
+            
+
             
             memre_a <= exmem_a ;
             memre_op <= exmem_op ;
@@ -246,9 +274,7 @@ Label_uut: memoire_instruction PORT MAP(
             
             
                 
-            end if ;
-             
-            
+            end if ; --1
             
         end process ;
 end Behavioral;

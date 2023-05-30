@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Sun May 28 17:10:01 2023
-| Host         : srv-tp04 running 64-bit Ubuntu 20.04.6 LTS
+| Date         : Tue May 30 18:52:15 2023
+| Host         : insa-11275 running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_utilization -file Pipeline_utilization_synth.rpt -pb Pipeline_utilization_synth.pb
 | Design       : Pipeline
 | Device       : 7a35tcpg236-1
@@ -27,20 +27,18 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+----------------------------+------+-------+-----------+-------+
-|          Site Type         | Used | Fixed | Available | Util% |
-+----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |   40 |     0 |     20800 |  0.19 |
-|   LUT as Logic             |   38 |     0 |     20800 |  0.18 |
-|   LUT as Memory            |    2 |     0 |      9600 |  0.02 |
-|     LUT as Distributed RAM |    0 |     0 |           |       |
-|     LUT as Shift Register  |    2 |     0 |           |       |
-| Slice Registers            |   77 |     0 |     41600 |  0.19 |
-|   Register as Flip Flop    |   77 |     0 |     41600 |  0.19 |
-|   Register as Latch        |    0 |     0 |     41600 |  0.00 |
-| F7 Muxes                   |    0 |     0 |     16300 |  0.00 |
-| F8 Muxes                   |    0 |     0 |      8150 |  0.00 |
-+----------------------------+------+-------+-----------+-------+
++-------------------------+------+-------+-----------+-------+
+|        Site Type        | Used | Fixed | Available | Util% |
++-------------------------+------+-------+-----------+-------+
+| Slice LUTs*             |  212 |     0 |     20800 |  1.02 |
+|   LUT as Logic          |  212 |     0 |     20800 |  1.02 |
+|   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
+| Slice Registers         |  217 |     0 |     41600 |  0.52 |
+|   Register as Flip Flop |  217 |     0 |     41600 |  0.52 |
+|   Register as Latch     |    0 |     0 |     41600 |  0.00 |
+| F7 Muxes                |    5 |     0 |     16300 |  0.03 |
+| F8 Muxes                |    0 |     0 |      8150 |  0.00 |
++-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
 
@@ -59,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 77    |          Yes |       Reset |            - |
+| 217   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -151,17 +149,17 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   77 |        Flop & Latch |
-| LUT2     |   15 |                 LUT |
-| LUT4     |   10 |                 LUT |
-| LUT5     |    9 |                 LUT |
+| FDRE     |  217 |        Flop & Latch |
+| LUT6     |   97 |                 LUT |
+| LUT4     |   74 |                 LUT |
+| LUT2     |   34 |                 LUT |
+| LUT5     |   21 |                 LUT |
+| CARRY4   |   12 |          CarryLogic |
 | OBUF     |    8 |                  IO |
-| LUT1     |    4 |                 LUT |
-| LUT6     |    3 |                 LUT |
-| SRL16E   |    2 |  Distributed Memory |
-| LUT3     |    2 |                 LUT |
+| LUT3     |    7 |                 LUT |
+| MUXF7    |    5 |               MuxFx |
+| LUT1     |    2 |                 LUT |
 | IBUF     |    2 |                  IO |
-| CARRY4   |    2 |          CarryLogic |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 

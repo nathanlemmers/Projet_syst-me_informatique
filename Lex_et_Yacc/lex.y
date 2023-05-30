@@ -95,7 +95,7 @@ contenu :
 Sicomplet : si {printf("L%d:\n", $1);} 
     |si {int i = $1 ;
         $1 = label++ ;
-        printf("JMF #0 L%d\n", $1);
+        printf("JMF L%d 0\n", $1);
         printf("L%d:\n", i);
         } 
     sinon 
@@ -106,11 +106,12 @@ tandis : tWHILE tLPAR {$1 = label++ ;
             printf("L%d\n", $1) ;}
         condition tRPAR tLBRACE 
             {$6 = label++ ;
-            printf("JMF %d L%d\n", lastOffset(), $6);
+            printf("LOAD 01 %d\n", lastOffset()) ;
+            printf("JMF L%d 01\n", $6);
             }
         structure tRBRACE {delProfondeur() ; 
             delVariable()  ;
-            printf("JMF #0 L%d\n", $1) ;
+            printf("JMF L%d 0\n", $1) ;
             printf("L%d\n", $6) ;
         }
 ;
@@ -122,7 +123,8 @@ sinon : tELSE tLBRACE {addProfondeur() ;} structure tRBRACE {delProfondeur() ; d
 si : 
     tIF tLPAR condition tRPAR
         {   $1 = label++;
-            printf("JMF %d L%d\n", lastOffset(), $1);
+            printf("LOAD 01 %d\n", lastOffset()) ;
+            printf("JMF L%d 01\n", $1);
         }
     tLBRACE
         {addProfondeur() ;}
@@ -163,21 +165,30 @@ condition : condition tOR condition {int adrs2 = lastOffset() ;
                                     delTemporaire() ;}
     |condition tEQ condition {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("EQ %d %d\n", adrs1, adrs2) ;
+                                    printf("LOAD 01 %d\n", adrs1) ;
+                                    printf("LOAD 02 %d\n",adrs2) ;
+                                    printf("EQ 01 01 02\n") ;
+                                    printf("STORE %d 01\n", adrs1) ;
                                     delTemporaire() ;}
     |condition tNE condition {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("EQ %d %d\n", adrs2, adrs1) ;
+                                    printf("EQ %d %d %d\n",adrs1, adrs2, adrs1) ;
                                     printf("PUT %d 1\n", adrs1) ;
                                     printf("SUB %d %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
     |condition tGT condition {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("GT %d %d %d\n", adrs1, adrs1, adrs2) ;
+                                    printf("LOAD 01 %d\n", adrs1) ;
+                                    printf("LOAD 02 %d\n",adrs2) ;
+                                    printf("GT 01 01 02\n") ;
+                                    printf("STORE %d 01\n", adrs1) ;
                                     delTemporaire() ;}
     |condition tLT condition {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("LT %d %d %d\n", adrs1, adrs1, adrs2) ;
+                                    printf("LOAD 01 %d\n", adrs1) ;
+                                    printf("LOAD 02 %d\n",adrs2) ;
+                                    printf("LT 01 01 02\n") ;
+                                    printf("STORE %d 01\n", adrs1) ;
                                     delTemporaire() ;}
     |tID {int adrs = findOffset($1) ;
             addTemporaire() ;
@@ -211,8 +222,8 @@ action : newVariable tSEMI //{printf("Int declaration\n") ;}
 newVariable : tINT valeur
     |tINT valeur tASSIGN calcul {int adrs2 = lastOffset() ;
                                 int adrs1 = adrs2-1 ;
-                                printf("LOAD 00 %d\n", adrs2) ;
-                                printf("STORE %d 00\n", adrs1) ;
+                                printf("LOAD 01 %d\n", adrs2) ;
+                                printf("STORE %d 01\n", adrs1) ;
                                 init(adrs1) ;
                                 delTemporaire() ;}
 ;
@@ -223,8 +234,8 @@ valeur : tID {addVariable($1, 0, 0, getProfondeur()) ;}
 assignation : tID tASSIGN calcul    {initialiser($1) ;
                                     int adrs2 = lastOffset() ;
                                     int adrs1 = findOffset($1) ;
-                                    printf("LOAD 00 %d\n", adrs2) ;
-                                    printf("STORE %d 00\n", adrs1) ;
+                                    printf("LOAD 01 %d\n", adrs2) ;
+                                    printf("STORE %d 01\n", adrs1) ;
                                     delTemporaire() ;}
 ;
 

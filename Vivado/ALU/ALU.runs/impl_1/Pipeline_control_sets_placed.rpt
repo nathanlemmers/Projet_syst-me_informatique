@@ -1,0 +1,85 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Tue May 30 18:53:21 2023
+| Host         : insa-11275 running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_control_sets -verbose -file Pipeline_control_sets_placed.rpt
+| Design       : Pipeline
+| Device       : xc7a35t
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    21 |
+| Unused register locations in slices containing registers |     6 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|    16+ |           21 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |             100 |           24 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             334 |           47 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+---------------------+--------------------+------------------+----------------+
+|  Clock Signal  |    Enable Signal    |  Set/Reset Signal  | Slice Load Count | Bel Load Count |
++----------------+---------------------+--------------------+------------------+----------------+
+|  CLK_IBUF_BUFG | Label_uut1/P[1]_6   | Label_uut1/SR[0]   |                2 |             16 |
+|  CLK_IBUF_BUFG | diex_op[3]_i_1_n_0  | compteur           |                3 |             16 |
+|  CLK_IBUF_BUFG | a[7]_i_2_n_0        | a[7]_i_1_n_0       |                2 |             16 |
+|  CLK_IBUF_BUFG | Label_uut3/M[7]_7   | Label_uut1/SR[0]   |                1 |             16 |
+|  CLK_IBUF_BUFG | Label_uut3/M[6]_5   | Label_uut1/SR[0]   |                2 |             16 |
+|  CLK_IBUF_BUFG | Label_uut3/M[5]_4   | Label_uut1/SR[0]   |                1 |             16 |
+|  CLK_IBUF_BUFG | Label_uut3/M[4]_3   | Label_uut1/SR[0]   |                2 |             16 |
+|  CLK_IBUF_BUFG | Label_uut3/M[3]_6   | Label_uut1/SR[0]   |                1 |             16 |
+|  CLK_IBUF_BUFG | Label_uut3/M[2]_2   | Label_uut1/SR[0]   |                2 |             16 |
+|  CLK_IBUF_BUFG | Label_uut3/M[1]_0   | Label_uut1/SR[0]   |                3 |             16 |
+|  CLK_IBUF_BUFG | Label_uut3/M[0]_1   | Label_uut1/SR[0]   |                2 |             16 |
+|  CLK_IBUF_BUFG | Label_uut1/P[7]_0   | Label_uut1/SR[0]   |                4 |             16 |
+|  CLK_IBUF_BUFG | Label_uut1/P[6]_1   | Label_uut1/SR[0]   |                3 |             16 |
+|  CLK_IBUF_BUFG | Label_uut1/P[5]_2   | Label_uut1/SR[0]   |                1 |             16 |
+|  CLK_IBUF_BUFG | Label_uut1/P[4]_3   | Label_uut1/SR[0]   |                1 |             16 |
+|  CLK_IBUF_BUFG | Label_uut1/P[3]_4   | Label_uut1/SR[0]   |                1 |             16 |
+|  CLK_IBUF_BUFG | Label_uut1/P[2]_5   | Label_uut1/SR[0]   |                2 |             16 |
+|  CLK_IBUF_BUFG | Label_uut1/P[0]_7   | Label_uut1/SR[0]   |                2 |             16 |
+|  CLK_IBUF_BUFG | lidi_op             |                    |                6 |             24 |
+|  CLK_IBUF_BUFG | diex_op             | diex_op[3]_i_1_n_0 |               12 |             46 |
+|  CLK_IBUF_BUFG | exmem_op[3]_i_1_n_0 |                    |               18 |             76 |
++----------------+---------------------+--------------------+------------------+----------------+
+
+

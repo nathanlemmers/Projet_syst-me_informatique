@@ -14,40 +14,72 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 265207 
+INFO: Helper process launched with PID 216189 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1255.273 ; gain = 83.809 ; free physical = 109370 ; free virtual = 137817
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.273 ; gain = 83.699 ; free physical = 54627 ; free virtual = 67612
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'Pipeline' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:41]
-INFO: [Synth 8-3491] module 'memoire_instruction' declared at '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/memoire_instruction.vhd:34' bound to instance 'Label_uut' of component 'memoire_instruction' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:118]
+INFO: [Synth 8-3491] module 'memoire_instruction' declared at '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/memoire_instruction.vhd:34' bound to instance 'Label_uut' of component 'memoire_instruction' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:135]
 INFO: [Synth 8-638] synthesizing module 'memoire_instruction' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/memoire_instruction.vhd:40]
 INFO: [Synth 8-256] done synthesizing module 'memoire_instruction' (1#1) [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/memoire_instruction.vhd:40]
-INFO: [Synth 8-3491] module 'Banc_registres' declared at '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Banc_registres.vhd:34' bound to instance 'Label_uut1' of component 'Banc_registres' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:122]
+INFO: [Synth 8-3491] module 'Banc_registres' declared at '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Banc_registres.vhd:34' bound to instance 'Label_uut1' of component 'Banc_registres' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:140]
 INFO: [Synth 8-638] synthesizing module 'Banc_registres' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Banc_registres.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'Banc_registres' (2#1) [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Banc_registres.vhd:46]
-INFO: [Synth 8-3491] module 'ALU' declared at '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:37' bound to instance 'Label_uut2' of component 'ALU' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:134]
+INFO: [Synth 8-3491] module 'ALU' declared at '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:37' bound to instance 'Label_uut2' of component 'ALU' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:153]
 INFO: [Synth 8-638] synthesizing module 'ALU' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'ALU' (3#1) [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:47]
-INFO: [Synth 8-3491] module 'Memoire_donnees' declared at '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Memoire_donnees.vhd:34' bound to instance 'Label_uut3' of component 'Memoire_donnees' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:141]
+INFO: [Synth 8-3491] module 'Memoire_donnees' declared at '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Memoire_donnees.vhd:34' bound to instance 'Label_uut3' of component 'Memoire_donnees' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:160]
 INFO: [Synth 8-638] synthesizing module 'Memoire_donnees' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Memoire_donnees.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'Memoire_donnees' (4#1) [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Memoire_donnees.vhd:43]
-WARNING: [Synth 8-3936] Found unconnected internal register 'lidi_c_reg' and it is trimmed from '8' to '4' bits. [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:124]
-WARNING: [Synth 8-3936] Found unconnected internal register 'memre_a_reg' and it is trimmed from '8' to '4' bits. [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:126]
-WARNING: [Synth 8-3848] Net qb in module/entity Pipeline does not have driver. [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:102]
 INFO: [Synth 8-256] done synthesizing module 'Pipeline' (5#1) [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:41]
+WARNING: [Synth 8-3331] design memoire_instruction has unconnected port CLK
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.898 ; gain = 141.434 ; free physical = 109376 ; free virtual = 137823
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1314.898 ; gain = 143.324 ; free physical = 54617 ; free virtual = 67603
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1312.898 ; gain = 141.434 ; free physical = 109370 ; free virtual = 137818
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1314.898 ; gain = 143.324 ; free physical = 54621 ; free virtual = 67604
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1314.898 ; gain = 143.324 ; free physical = 54621 ; free virtual = 67604
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/constrs_1/new/process.xdc]
+Finished Parsing XDC File [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/constrs_1/new/process.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1673.281 ; gain = 0.000 ; free physical = 54360 ; free virtual = 67345
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54430 ; free virtual = 67415
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
-INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1320.902 ; gain = 149.438 ; free physical = 109368 ; free virtual = 137817
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54430 ; free virtual = 67415
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54430 ; free virtual = 67415
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "M" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "P_reg[15]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -166,8 +198,11 @@ INFO: [Synth 8-5546] ROM "M_reg[159]" won't be mapped to RAM because it is too s
 INFO: [Synth 8-5546] ROM "M_reg[158]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "M_reg[157]" won't be mapped to RAM because it is too sparse
 INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3936] Found unconnected internal register 'memre_a_reg' and it is trimmed from '8' to '4' bits. [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:144]
+WARNING: [Synth 8-327] inferring latch for variable 'O_reg' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:56]
+WARNING: [Synth 8-327] inferring latch for variable 'C_reg' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:60]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1338.160 ; gain = 166.695 ; free physical = 109305 ; free virtual = 137754
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54484 ; free virtual = 67469
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -175,7 +210,6 @@ Report RTL Partitions:
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -183,17 +217,17 @@ Detailed RTL Component Info :
 +---Adders : 
 	   3 Input     16 Bit       Adders := 1     
 	   2 Input      9 Bit       Adders := 1     
-	   2 Input      8 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 2     
 +---Registers : 
-	               32 Bit    Registers := 1     
-	                8 Bit    Registers := 287   
-	                4 Bit    Registers := 2     
+	                8 Bit    Registers := 288   
+	                4 Bit    Registers := 1     
 +---Muxes : 
 	 257 Input     32 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 3     
-	   2 Input      8 Bit        Muxes := 4     
-	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 274   
+	   6 Input     16 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 278   
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -204,18 +238,16 @@ Hierarchical RTL Component report
 Module Pipeline 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      8 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 2     
 +---Registers : 
-	                8 Bit    Registers := 14    
-	                4 Bit    Registers := 2     
+	                8 Bit    Registers := 16    
+	                4 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input      8 Bit        Muxes := 4     
-	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
 Module memoire_instruction 
 Detailed RTL Component Info : 
-+---Registers : 
-	               32 Bit    Registers := 1     
 +---Muxes : 
 	 257 Input     32 Bit        Muxes := 1     
 Module Banc_registres 
@@ -230,12 +262,13 @@ Detailed RTL Component Info :
 	   3 Input     16 Bit       Adders := 1     
 	   2 Input      9 Bit       Adders := 1     
 +---Muxes : 
-	   2 Input     16 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 1     
+	   6 Input     16 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
 Module Memoire_donnees 
 Detailed RTL Component Info : 
 +---Registers : 
-	                8 Bit    Registers := 257   
+	                8 Bit    Registers := 256   
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 256   
 ---------------------------------------------------------------------------------
@@ -250,205 +283,149 @@ BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3936] Found unconnected internal register 'Label_uut/S_reg' and it is trimmed from '32' to '28' bits. [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/memoire_instruction.vhd:49]
-INFO: [Synth 8-3886] merging instance 'Label_uut/S_reg[8]' (FD) to 'Label_uut/S_reg[24]'
-INFO: [Synth 8-3886] merging instance 'Label_uut/S_reg[9]' (FD) to 'Label_uut/S_reg[11]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[10] )
-INFO: [Synth 8-3886] merging instance 'Label_uut/S_reg[11]' (FD) to 'Label_uut/S_reg[13]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[12] )
-INFO: [Synth 8-3886] merging instance 'Label_uut/S_reg[13]' (FD) to 'Label_uut/S_reg[15]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[14] )
-INFO: [Synth 8-3886] merging instance 'Label_uut/S_reg[15]' (FD) to 'Label_uut/S_reg[27]'
-INFO: [Synth 8-3886] merging instance 'lidi_a_reg[0]' (FD) to 'lidi_c_reg[0]'
-INFO: [Synth 8-3886] merging instance 'lidi_a_reg[1]' (FD) to 'lidi_a_reg[7]'
-INFO: [Synth 8-3886] merging instance 'lidi_a_reg[3]' (FD) to 'lidi_a_reg[7]'
-INFO: [Synth 8-3886] merging instance 'lidi_a_reg[5]' (FD) to 'lidi_a_reg[7]'
-INFO: [Synth 8-3886] merging instance 'lidi_a_reg[7]' (FD) to 'lidi_c_reg[3]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[23] )
-INFO: [Synth 8-3886] merging instance 'Label_uut/S_reg[17]' (FD) to 'Label_uut/S_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[5] )
-INFO: [Synth 8-3886] merging instance 'Label_uut/S_reg[1]' (FD) to 'Label_uut/S_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut/S_reg[3] )
-INFO: [Synth 8-3886] merging instance 'diex_a_reg[1]' (FD) to 'diex_a_reg[7]'
-INFO: [Synth 8-3886] merging instance 'diex_a_reg[3]' (FD) to 'diex_a_reg[7]'
-INFO: [Synth 8-3886] merging instance 'diex_a_reg[5]' (FD) to 'diex_a_reg[7]'
-INFO: [Synth 8-3886] merging instance 'lidi_b_reg[1]' (FD) to 'lidi_op_reg[1]'
-INFO: [Synth 8-3886] merging instance 'Label_uut/S_reg[25]' (FD) to 'Label_uut/S_reg[26]'
-INFO: [Synth 8-3886] merging instance 'lidi_op_reg[1]' (FD) to 'lidi_op_reg[0]'
-INFO: [Synth 8-3886] merging instance 'exmem_a_reg[1]' (FD) to 'exmem_a_reg[5]'
-INFO: [Synth 8-3886] merging instance 'exmem_a_reg[3]' (FD) to 'exmem_a_reg[5]'
-INFO: [Synth 8-3886] merging instance 'exmem_a_reg[5]' (FD) to 'exmem_a_reg[7]'
-INFO: [Synth 8-3886] merging instance 'lidi_c_reg[1]' (FD) to 'lidi_c_reg[2]'
-INFO: [Synth 8-3886] merging instance 'diex_op_reg[1]' (FD) to 'diex_op_reg[0]'
-INFO: [Synth 8-3886] merging instance 'exmem_op_reg[0]' (FD) to 'exmem_op_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_a_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_a_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_a_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_b_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_b_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_b_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_b_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_b_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_b_reg[3] )
-INFO: [Synth 8-3886] merging instance 'memre_a_reg[3]' (FD) to 'memre_a_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_op_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_op_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_op_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_op_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_op_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_op_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\diex_a_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\diex_a_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\diex_a_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\diex_op_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\diex_op_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\diex_op_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\diex_op_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\diex_op_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\diex_op_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\exmem_a_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\exmem_a_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\exmem_a_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\exmem_op_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\exmem_op_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\exmem_op_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\exmem_op_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\exmem_op_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\exmem_op_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\memre_a_reg[2] )
-INFO: [Synth 8-3886] merging instance 'Label_uut3/S_reg[0]' (FDE) to 'Label_uut3/S_reg[1]'
-INFO: [Synth 8-3886] merging instance 'Label_uut3/S_reg[1]' (FDE) to 'Label_uut3/S_reg[2]'
-INFO: [Synth 8-3886] merging instance 'Label_uut3/S_reg[2]' (FDE) to 'Label_uut3/S_reg[3]'
-INFO: [Synth 8-3886] merging instance 'Label_uut3/S_reg[3]' (FDE) to 'Label_uut3/S_reg[4]'
-INFO: [Synth 8-3886] merging instance 'Label_uut3/S_reg[4]' (FDE) to 'Label_uut3/S_reg[5]'
-INFO: [Synth 8-3886] merging instance 'Label_uut3/S_reg[5]' (FDE) to 'Label_uut3/S_reg[6]'
-INFO: [Synth 8-3886] merging instance 'Label_uut3/S_reg[6]' (FDE) to 'Label_uut3/S_reg[7]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut3/S_reg[7] )
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[255][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[255][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[255][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[255][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[255][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[255][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[255][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[255][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[254][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[254][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[254][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[254][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[254][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[254][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[254][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[254][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[253][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[253][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[253][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[253][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[253][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[253][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[253][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[253][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[252][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[252][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[252][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[252][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[252][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[252][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[252][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[252][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[251][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[251][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[251][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[251][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[251][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[251][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[251][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[251][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[250][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[250][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[250][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[250][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[250][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[250][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[250][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[250][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[249][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[249][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[249][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[249][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[249][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[249][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[249][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[249][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[248][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[248][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[248][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[248][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[248][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[248][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[248][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[248][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[247][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[247][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[247][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[247][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[247][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[247][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[247][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[247][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[246][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[246][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[246][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[246][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[246][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[246][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[246][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[246][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[245][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[245][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[245][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[245][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[245][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[245][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[245][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[245][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[244][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[244][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[244][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[244][4]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[244][3]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[244][2]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[244][1]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[244][0]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[243][7]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[243][6]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[243][5]) is unused and will be removed from module Pipeline.
-WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[243][4]) is unused and will be removed from module Pipeline.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][0]' (FDRE) to 'Label_uut1/P_reg[3][0]'
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][1]' (FDRE) to 'Label_uut1/P_reg[3][1]'
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][2]' (FDRE) to 'Label_uut1/P_reg[3][2]'
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][3]' (FDRE) to 'Label_uut1/P_reg[3][3]'
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][4]' (FDRE) to 'Label_uut1/P_reg[3][4]'
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][5]' (FDRE) to 'Label_uut1/P_reg[3][5]'
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][6]' (FDRE) to 'Label_uut1/P_reg[3][6]'
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][7]' (FDRE) to 'Label_uut1/P_reg[3][7]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[15][0]' (FDRE) to 'Label_uut1/P_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[14][0]' (FDRE) to 'Label_uut1/P_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[13][0]' (FDRE) to 'Label_uut1/P_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[12][0]' (FDRE) to 'Label_uut1/P_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[11][0]' (FDRE) to 'Label_uut1/P_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[10][0]' (FDRE) to 'Label_uut1/P_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][0]' (FDRE) to 'Label_uut1/P_reg[8][0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[8][0] )
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[15][1]' (FDRE) to 'Label_uut1/P_reg[8][1]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[14][1]' (FDRE) to 'Label_uut1/P_reg[8][1]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[13][1]' (FDRE) to 'Label_uut1/P_reg[8][1]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[12][1]' (FDRE) to 'Label_uut1/P_reg[8][1]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[11][1]' (FDRE) to 'Label_uut1/P_reg[8][1]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[10][1]' (FDRE) to 'Label_uut1/P_reg[8][1]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][1]' (FDRE) to 'Label_uut1/P_reg[8][1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[8][1] )
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[15][2]' (FDRE) to 'Label_uut1/P_reg[8][2]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[14][2]' (FDRE) to 'Label_uut1/P_reg[8][2]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[13][2]' (FDRE) to 'Label_uut1/P_reg[8][2]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[12][2]' (FDRE) to 'Label_uut1/P_reg[8][2]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[11][2]' (FDRE) to 'Label_uut1/P_reg[8][2]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[10][2]' (FDRE) to 'Label_uut1/P_reg[8][2]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][2]' (FDRE) to 'Label_uut1/P_reg[8][2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[8][2] )
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[15][3]' (FDRE) to 'Label_uut1/P_reg[8][3]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[14][3]' (FDRE) to 'Label_uut1/P_reg[8][3]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[13][3]' (FDRE) to 'Label_uut1/P_reg[8][3]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[12][3]' (FDRE) to 'Label_uut1/P_reg[8][3]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[11][3]' (FDRE) to 'Label_uut1/P_reg[8][3]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[10][3]' (FDRE) to 'Label_uut1/P_reg[8][3]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][3]' (FDRE) to 'Label_uut1/P_reg[8][3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[8][3] )
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[15][4]' (FDRE) to 'Label_uut1/P_reg[8][4]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[14][4]' (FDRE) to 'Label_uut1/P_reg[8][4]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[13][4]' (FDRE) to 'Label_uut1/P_reg[8][4]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[12][4]' (FDRE) to 'Label_uut1/P_reg[8][4]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[11][4]' (FDRE) to 'Label_uut1/P_reg[8][4]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[10][4]' (FDRE) to 'Label_uut1/P_reg[8][4]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][4]' (FDRE) to 'Label_uut1/P_reg[8][4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[8][4] )
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[15][5]' (FDRE) to 'Label_uut1/P_reg[8][5]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[14][5]' (FDRE) to 'Label_uut1/P_reg[8][5]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[13][5]' (FDRE) to 'Label_uut1/P_reg[8][5]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[12][5]' (FDRE) to 'Label_uut1/P_reg[8][5]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[11][5]' (FDRE) to 'Label_uut1/P_reg[8][5]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[10][5]' (FDRE) to 'Label_uut1/P_reg[8][5]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][5]' (FDRE) to 'Label_uut1/P_reg[8][5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[8][5] )
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[15][6]' (FDRE) to 'Label_uut1/P_reg[8][6]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[14][6]' (FDRE) to 'Label_uut1/P_reg[8][6]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[13][6]' (FDRE) to 'Label_uut1/P_reg[8][6]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[12][6]' (FDRE) to 'Label_uut1/P_reg[8][6]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[11][6]' (FDRE) to 'Label_uut1/P_reg[8][6]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[10][6]' (FDRE) to 'Label_uut1/P_reg[8][6]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][6]' (FDRE) to 'Label_uut1/P_reg[8][6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[8][6] )
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[15][7]' (FDRE) to 'Label_uut1/P_reg[8][7]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[14][7]' (FDRE) to 'Label_uut1/P_reg[8][7]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[13][7]' (FDRE) to 'Label_uut1/P_reg[8][7]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[12][7]' (FDRE) to 'Label_uut1/P_reg[8][7]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[11][7]' (FDRE) to 'Label_uut1/P_reg[8][7]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[10][7]' (FDRE) to 'Label_uut1/P_reg[8][7]'
+INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[9][7]' (FDRE) to 'Label_uut1/P_reg[8][7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[8][7] )
+INFO: [Synth 8-3886] merging instance 'lidi_c_reg[6]' (FDE) to 'lidi_c_reg[0]'
+INFO: [Synth 8-3886] merging instance 'lidi_c_reg[7]' (FDE) to 'lidi_c_reg[0]'
+INFO: [Synth 8-3886] merging instance 'lidi_c_reg[0]' (FDE) to 'lidi_c_reg[1]'
+INFO: [Synth 8-3886] merging instance 'lidi_c_reg[1]' (FDE) to 'lidi_c_reg[2]'
+INFO: [Synth 8-3886] merging instance 'lidi_c_reg[2]' (FDE) to 'lidi_c_reg[3]'
+INFO: [Synth 8-3886] merging instance 'lidi_c_reg[3]' (FDE) to 'lidi_c_reg[4]'
+INFO: [Synth 8-3886] merging instance 'lidi_c_reg[4]' (FDE) to 'lidi_c_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\lidi_c_reg[5] )
+WARNING: [Synth 8-3332] Sequential element (Label_uut2/O_reg) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut2/C_reg) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (lidi_c_reg[5]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut1/P_reg[8][0]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut1/P_reg[8][1]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut1/P_reg[8][2]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut1/P_reg[8][3]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut1/P_reg[8][4]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut1/P_reg[8][5]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut1/P_reg[8][6]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut1/P_reg[8][7]) is unused and will be removed from module Pipeline.
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[176][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[177][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[178][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[179][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[180][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[181][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[182][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[183][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[184][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[185][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[186][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[187][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[188][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[189][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[190][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[191][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[172][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[173][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[174][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[175][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[160][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[161][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[162][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[163][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[168][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[169][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[170][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[171][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[164][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[165][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[166][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[167][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[148][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[149][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[150][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[151][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'Label_uut3/M_reg[144][0]' (FDRE) to 'Label_uut3/M_reg[8][0]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut3/M_reg[83][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut3/M_reg[83][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut3/M_reg[83][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut3/M_reg[83][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut3/M_reg[83][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut3/M_reg[83][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut3/M_reg[83][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut3/M_reg[83][7] )
+WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[83][0]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[83][1]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[83][2]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[83][3]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[83][4]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[83][5]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[83][6]) is unused and will be removed from module Pipeline.
+WARNING: [Synth 8-3332] Sequential element (Label_uut3/M_reg[83][7]) is unused and will be removed from module Pipeline.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109214 ; free virtual = 137659
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:29 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54460 ; free virtual = 67449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -456,12 +433,17 @@ Report RTL Partitions:
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-No constraint files found.
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:36 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54348 ; free virtual = 67337
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109205 ; free virtual = 137650
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:37 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54324 ; free virtual = 67313
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -472,24 +454,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[2][7]' (FDRE) to 'Label_uut1/P_reg[3][7]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[3][7] )
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[2][0]' (FDRE) to 'Label_uut1/P_reg[3][0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[3][0] )
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[2][1]' (FDRE) to 'Label_uut1/P_reg[3][1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[3][1] )
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[2][2]' (FDRE) to 'Label_uut1/P_reg[3][2]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[3][2] )
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[2][3]' (FDRE) to 'Label_uut1/P_reg[3][3]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[3][3] )
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[2][4]' (FDRE) to 'Label_uut1/P_reg[3][4]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[3][4] )
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[2][5]' (FDRE) to 'Label_uut1/P_reg[3][5]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[3][5] )
-INFO: [Synth 8-3886] merging instance 'Label_uut1/P_reg[2][6]' (FDRE) to 'Label_uut1/P_reg[3][6]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Label_uut1/P_reg[3][6] )
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:32 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109205 ; free virtual = 137650
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:37 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54314 ; free virtual = 67303
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -513,36 +479,20 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137634
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54314 ; free virtual = 67303
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[7] with 1st driver pin 'i_36/O' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:55]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[7] with 2nd driver pin 'diex_c_reg[7]/Q' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:131]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[6] with 1st driver pin 'i_37/O' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:55]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[6] with 2nd driver pin 'diex_c_reg[6]/Q' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:131]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[5] with 1st driver pin 'i_38/O' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:55]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[5] with 2nd driver pin 'diex_c_reg[5]/Q' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:131]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[4] with 1st driver pin 'i_39/O' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:55]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[4] with 2nd driver pin 'diex_c_reg[4]/Q' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:131]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[3] with 1st driver pin 'i_40/O' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:55]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[3] with 2nd driver pin 'diex_c_reg[3]/Q' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:131]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[2] with 1st driver pin 'i_41/O' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:55]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[2] with 2nd driver pin 'diex_c_reg[2]/Q' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:131]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[1] with 1st driver pin 'i_42/O' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:55]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[1] with 2nd driver pin 'diex_c_reg[1]/Q' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:131]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[0] with 1st driver pin 'i_43/O' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/ALU.vhd:55]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net diex_c[0] with 2nd driver pin 'diex_c_reg[0]/Q' [/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.srcs/sources_1/new/Pipeline.vhd:131]
 
 Report Check Netlist: 
 +------+------------------+-------+---------+-------+------------------+
 |      |Item              |Errors |Warnings |Status |Description       |
 +------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        8|Failed |Multi driven nets |
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137633
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54314 ; free virtual = 67303
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -554,39 +504,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137633
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54313 ; free virtual = 67302
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137633
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54313 ; free virtual = 67302
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109188 ; free virtual = 137633
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54313 ; free virtual = 67302
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109187 ; free virtual = 137633
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Static Shift Register Report:
-+------------+----------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|Module Name | RTL Name       | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
-+------------+----------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|Pipeline    | memre_a_reg[1] | 3      | 2     | NO           | NO                 | YES               | 2      | 0       | 
-+------------+----------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54313 ; free virtual = 67302
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -603,36 +539,36 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     1|
-|2     |CARRY4 |     2|
-|3     |LUT1   |     4|
-|4     |LUT2   |    15|
-|5     |LUT3   |     2|
-|6     |LUT4   |    10|
-|7     |LUT5   |     9|
-|8     |LUT6   |     3|
-|9     |SRL16E |     2|
-|10    |FDRE   |    77|
+|2     |CARRY4 |    12|
+|3     |LUT1   |     2|
+|4     |LUT2   |    34|
+|5     |LUT3   |     7|
+|6     |LUT4   |    74|
+|7     |LUT5   |    21|
+|8     |LUT6   |    97|
+|9     |MUXF7  |     5|
+|10    |FDRE   |   217|
 |11    |IBUF   |     2|
 |12    |OBUF   |     8|
 +------+-------+------+
 
 Report Instance Areas: 
-+------+-------------+--------------------+------+
-|      |Instance     |Module              |Cells |
-+------+-------------+--------------------+------+
-|1     |top          |                    |   135|
-|2     |  Label_uut  |memoire_instruction |    11|
-|3     |  Label_uut1 |Banc_registres      |    35|
-|4     |  Label_uut2 |ALU                 |    10|
-+------+-------------+--------------------+------+
++------+-------------+----------------+------+
+|      |Instance     |Module          |Cells |
++------+-------------+----------------+------+
+|1     |top          |                |   480|
+|2     |  Label_uut1 |Banc_registres  |   103|
+|3     |  Label_uut2 |ALU             |   105|
+|4     |  Label_uut3 |Memoire_donnees |   105|
++------+-------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109186 ; free virtual = 137631
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:37 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54313 ; free virtual = 67302
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 16 critical warnings and 2199 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.293 ; gain = 280.828 ; free physical = 109185 ; free virtual = 137631
-Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 1452.301 ; gain = 280.828 ; free physical = 109198 ; free virtual = 137643
+Synthesis finished with 0 errors, 0 critical warnings and 22 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 1673.281 ; gain = 143.324 ; free physical = 54367 ; free virtual = 67356
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:38 . Memory (MB): peak = 1673.281 ; gain = 501.707 ; free physical = 54370 ; free virtual = 67359
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 19 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -640,11 +576,11 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-247 Infos, 104 Warnings, 16 Critical Warnings and 0 Errors encountered.
+260 Infos, 23 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:35 . Memory (MB): peak = 1567.320 ; gain = 407.500 ; free physical = 109187 ; free virtual = 137631
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:38 . Memory (MB): peak = 1673.281 ; gain = 513.461 ; free physical = 54322 ; free virtual = 67312
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/lemmers/Bureau/4-IR/Système_Informatique_Projet/Vivado/ALU/ALU.runs/synth_1/Pipeline.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Pipeline_utilization_synth.rpt -pb Pipeline_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1591.332 ; gain = 0.000 ; free physical = 109180 ; free virtual = 137625
-INFO: [Common 17-206] Exiting Vivado at Sun May 28 17:10:01 2023...
+report_utilization: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.09 . Memory (MB): peak = 1697.293 ; gain = 0.000 ; free physical = 54356 ; free virtual = 67345
+INFO: [Common 17-206] Exiting Vivado at Tue May 30 18:52:15 2023...

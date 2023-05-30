@@ -45,8 +45,8 @@ end Banc_registres;
 
 architecture Behavioral of Banc_registres is
 
-type reg is array (15 downto 0) of std_logic_vector (7 downto 0) ;
-signal P: reg := (others => (others => '0'));
+type reg is array (0 to 15) of std_logic_vector (7 downto 0) ;
+signal P: reg :=  (others => (others => '0'));
 begin
 
     process

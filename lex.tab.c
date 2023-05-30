@@ -571,11 +571,11 @@ static const yytype_int16 yyrline[] =
 {
        0,    48,    48,    49,    54,    58,    53,    63,    66,    62,
       69,    74,    75,    76,    79,    84,    85,    89,    90,    91,
-      95,    96,    96,   105,   108,   105,   119,   119,   124,   128,
-     123,   137,   142,   146,   155,   164,   168,   174,   178,   182,
-     186,   190,   195,   205,   206,   207,   211,   212,   220,   221,
-     223,   232,   248,   253,   258,   259,   263,   269,   275,   291,
-     290,   306,   307,   308,   311
+      95,    96,    96,   105,   108,   105,   120,   120,   125,   130,
+     124,   139,   144,   148,   157,   166,   173,   179,   186,   193,
+     197,   201,   206,   216,   217,   218,   222,   223,   231,   232,
+     234,   243,   259,   264,   269,   270,   274,   280,   286,   302,
+     301,   317,   318,   319,   322
 };
 #endif
 
@@ -1514,7 +1514,7 @@ yyreduce:
 #line 96 "Lex_et_Yacc/lex.y"
         {int i = (yyvsp[0].nb) ;
         (yyvsp[0].nb) = label++ ;
-        printf("JMF #0 L%d\n", (yyvsp[0].nb));
+        printf("JMF L%d 0\n", (yyvsp[0].nb));
         printf("L%d:\n", i);
         }
 #line 1521 "lex.tab.c"
@@ -1536,78 +1536,80 @@ yyreduce:
   case 24:
 #line 108 "Lex_et_Yacc/lex.y"
             {(yyvsp[0].nb) = label++ ;
-            printf("JMF %d L%d\n", lastOffset(), (yyvsp[0].nb));
+            printf("LOAD 01 %d\n", lastOffset()) ;
+            printf("JMF L%d 01\n", (yyvsp[0].nb));
             }
-#line 1542 "lex.tab.c"
+#line 1543 "lex.tab.c"
     break;
 
   case 25:
-#line 111 "Lex_et_Yacc/lex.y"
+#line 112 "Lex_et_Yacc/lex.y"
                           {delProfondeur() ; 
             delVariable()  ;
-            printf("JMF #0 L%d\n", (yyvsp[-8].nb)) ;
+            printf("JMF L%d 0\n", (yyvsp[-8].nb)) ;
             printf("L%d\n", (yyvsp[-3].nb)) ;
         }
-#line 1552 "lex.tab.c"
+#line 1553 "lex.tab.c"
     break;
 
   case 26:
-#line 119 "Lex_et_Yacc/lex.y"
+#line 120 "Lex_et_Yacc/lex.y"
                       {addProfondeur() ;}
-#line 1558 "lex.tab.c"
+#line 1559 "lex.tab.c"
     break;
 
   case 27:
-#line 119 "Lex_et_Yacc/lex.y"
+#line 120 "Lex_et_Yacc/lex.y"
                                                             {delProfondeur() ; delVariable()  ;}
-#line 1564 "lex.tab.c"
+#line 1565 "lex.tab.c"
     break;
 
   case 28:
-#line 124 "Lex_et_Yacc/lex.y"
+#line 125 "Lex_et_Yacc/lex.y"
         {   (yyvsp[-3].nb) = label++;
-            printf("JMF %d L%d\n", lastOffset(), (yyvsp[-3].nb));
+            printf("LOAD 01 %d\n", lastOffset()) ;
+            printf("JMF L%d 01\n", (yyvsp[-3].nb));
         }
-#line 1572 "lex.tab.c"
+#line 1574 "lex.tab.c"
     break;
 
   case 29:
-#line 128 "Lex_et_Yacc/lex.y"
+#line 130 "Lex_et_Yacc/lex.y"
         {addProfondeur() ;}
-#line 1578 "lex.tab.c"
+#line 1580 "lex.tab.c"
     break;
 
   case 30:
-#line 130 "Lex_et_Yacc/lex.y"
+#line 132 "Lex_et_Yacc/lex.y"
         {   delProfondeur() ;
             delVariable()  ;
             delTemporaire() ;
             (yyval.nb) = (yyvsp[-8].nb) ;
         }
-#line 1588 "lex.tab.c"
+#line 1590 "lex.tab.c"
     break;
 
   case 31:
-#line 137 "Lex_et_Yacc/lex.y"
+#line 139 "Lex_et_Yacc/lex.y"
                                     {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("OR %d %d %d\n",adrs1, adrs1, adrs2) ;
                                     delTemporaire() ;
 }
-#line 1598 "lex.tab.c"
+#line 1600 "lex.tab.c"
     break;
 
   case 32:
-#line 142 "Lex_et_Yacc/lex.y"
+#line 144 "Lex_et_Yacc/lex.y"
                               {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     printf("MUL %d %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
-#line 1607 "lex.tab.c"
+#line 1609 "lex.tab.c"
     break;
 
   case 33:
-#line 146 "Lex_et_Yacc/lex.y"
+#line 148 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     addTemporaire() ;
@@ -1617,11 +1619,11 @@ yyreduce:
                                     printf("OR %d %d %d\n",adrs1, adrs1, adrs3) ;
                                     delTemporaire() ;
                                     delTemporaire() ;}
-#line 1621 "lex.tab.c"
+#line 1623 "lex.tab.c"
     break;
 
   case 34:
-#line 155 "Lex_et_Yacc/lex.y"
+#line 157 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
                                     addTemporaire() ;
@@ -1631,77 +1633,86 @@ yyreduce:
                                     printf("OR %d %d %d\n",adrs1, adrs1, adrs3) ;
                                     delTemporaire() ;
                                     delTemporaire() ;}
-#line 1635 "lex.tab.c"
+#line 1637 "lex.tab.c"
     break;
 
   case 35:
-#line 164 "Lex_et_Yacc/lex.y"
+#line 166 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("EQ %d %d\n", adrs1, adrs2) ;
+                                    printf("LOAD 01 %d\n", adrs1) ;
+                                    printf("LOAD 02 %d\n",adrs2) ;
+                                    printf("EQ 01 01 02\n") ;
+                                    printf("STORE %d 01\n", adrs1) ;
                                     delTemporaire() ;}
-#line 1644 "lex.tab.c"
+#line 1649 "lex.tab.c"
     break;
 
   case 36:
-#line 168 "Lex_et_Yacc/lex.y"
+#line 173 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("EQ %d %d\n", adrs2, adrs1) ;
+                                    printf("EQ %d %d %d\n",adrs1, adrs2, adrs1) ;
                                     printf("PUT %d 1\n", adrs1) ;
                                     printf("SUB %d %d\n", adrs1, adrs2) ;
                                     delTemporaire() ;}
-#line 1655 "lex.tab.c"
+#line 1660 "lex.tab.c"
     break;
 
   case 37:
-#line 174 "Lex_et_Yacc/lex.y"
+#line 179 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("GT %d %d %d\n", adrs1, adrs1, adrs2) ;
+                                    printf("LOAD 01 %d\n", adrs1) ;
+                                    printf("LOAD 02 %d\n",adrs2) ;
+                                    printf("GT 01 01 02\n") ;
+                                    printf("STORE %d 01\n", adrs1) ;
                                     delTemporaire() ;}
-#line 1664 "lex.tab.c"
+#line 1672 "lex.tab.c"
     break;
 
   case 38:
-#line 178 "Lex_et_Yacc/lex.y"
+#line 186 "Lex_et_Yacc/lex.y"
                              {int adrs2 = lastOffset() ;
                                     int adrs1 = adrs2-1 ;
-                                    printf("LT %d %d %d\n", adrs1, adrs1, adrs2) ;
+                                    printf("LOAD 01 %d\n", adrs1) ;
+                                    printf("LOAD 02 %d\n",adrs2) ;
+                                    printf("LT 01 01 02\n") ;
+                                    printf("STORE %d 01\n", adrs1) ;
                                     delTemporaire() ;}
-#line 1673 "lex.tab.c"
+#line 1684 "lex.tab.c"
     break;
 
   case 39:
-#line 182 "Lex_et_Yacc/lex.y"
+#line 193 "Lex_et_Yacc/lex.y"
          {int adrs = findOffset((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
             printf("COP %d %d\n", adrsTempo, adrs);}
-#line 1682 "lex.tab.c"
+#line 1693 "lex.tab.c"
     break;
 
   case 40:
-#line 186 "Lex_et_Yacc/lex.y"
+#line 197 "Lex_et_Yacc/lex.y"
          {int adrs = atoi((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
             printf("PUT %d %d\n", adrsTempo, adrs);}
-#line 1691 "lex.tab.c"
+#line 1702 "lex.tab.c"
     break;
 
   case 41:
-#line 190 "Lex_et_Yacc/lex.y"
+#line 201 "Lex_et_Yacc/lex.y"
               {int adrs = findOffset((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
             printf("PUT %d 1\n", adrsTempo) ;
             printf("SUB %d %d\n", adrsTempo, adrs) ; }
-#line 1701 "lex.tab.c"
+#line 1712 "lex.tab.c"
     break;
 
   case 42:
-#line 195 "Lex_et_Yacc/lex.y"
+#line 206 "Lex_et_Yacc/lex.y"
                                 {int adrs = lastOffset() ;
                                 addTemporaire() ;
                                 int adrs1 = adrs+1 ;
@@ -1710,117 +1721,117 @@ yyreduce:
                                 printf("SUB %d %d\n", adrs1, adrs1) ;
                                 delTemporaire() ;
                                 }
-#line 1714 "lex.tab.c"
-    break;
-
-  case 47:
-#line 212 "Lex_et_Yacc/lex.y"
-                                {int adrs2 = lastOffset() ;
-                                int adrs1 = adrs2-1 ;
-                                printf("LOAD 00 %d\n", adrs2) ;
-                                printf("STORE %d 00\n", adrs1) ;
-                                init(adrs1) ;
-                                delTemporaire() ;}
 #line 1725 "lex.tab.c"
     break;
 
+  case 47:
+#line 223 "Lex_et_Yacc/lex.y"
+                                {int adrs2 = lastOffset() ;
+                                int adrs1 = adrs2-1 ;
+                                printf("LOAD 01 %d\n", adrs2) ;
+                                printf("STORE %d 01\n", adrs1) ;
+                                init(adrs1) ;
+                                delTemporaire() ;}
+#line 1736 "lex.tab.c"
+    break;
+
   case 48:
-#line 220 "Lex_et_Yacc/lex.y"
+#line 231 "Lex_et_Yacc/lex.y"
              {addVariable((yyvsp[0].s), 0, 0, getProfondeur()) ;}
-#line 1731 "lex.tab.c"
+#line 1742 "lex.tab.c"
     break;
 
   case 49:
-#line 221 "Lex_et_Yacc/lex.y"
+#line 232 "Lex_et_Yacc/lex.y"
                        {addVariable((yyvsp[0].s), 0, 0, getProfondeur()) ;}
-#line 1737 "lex.tab.c"
-    break;
-
-  case 50:
-#line 223 "Lex_et_Yacc/lex.y"
-                                    {initialiser((yyvsp[-2].s)) ;
-                                    int adrs2 = lastOffset() ;
-                                    int adrs1 = findOffset((yyvsp[-2].s)) ;
-                                    printf("LOAD 00 %d\n", adrs2) ;
-                                    printf("STORE %d 00\n", adrs1) ;
-                                    delTemporaire() ;}
 #line 1748 "lex.tab.c"
     break;
 
+  case 50:
+#line 234 "Lex_et_Yacc/lex.y"
+                                    {initialiser((yyvsp[-2].s)) ;
+                                    int adrs2 = lastOffset() ;
+                                    int adrs1 = findOffset((yyvsp[-2].s)) ;
+                                    printf("LOAD 01 %d\n", adrs2) ;
+                                    printf("STORE %d 01\n", adrs1) ;
+                                    delTemporaire() ;}
+#line 1759 "lex.tab.c"
+    break;
+
   case 52:
-#line 248 "Lex_et_Yacc/lex.y"
+#line 259 "Lex_et_Yacc/lex.y"
              {int adrs = findOffset((yyvsp[0].s)) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
             printf("LOAD 01 %d\n", adrs);
             printf("STORE %d 01\n", adrsTempo);}
-#line 1758 "lex.tab.c"
+#line 1769 "lex.tab.c"
     break;
 
   case 53:
-#line 253 "Lex_et_Yacc/lex.y"
+#line 264 "Lex_et_Yacc/lex.y"
          {int adrs = atoi((yyvsp[0].s)) ;
           addTemporaire() ;
             int adrsTempo = lastOffset() ;
             printf("PUT 01 %d\n", adrs);
             printf("STORE %d 01\n", adrsTempo) ;}
-#line 1768 "lex.tab.c"
+#line 1779 "lex.tab.c"
     break;
 
   case 55:
-#line 259 "Lex_et_Yacc/lex.y"
+#line 270 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
 
                         printf("DIV %d %d\n", adrs1, adrs2) ;
                         delTemporaire() ;}
-#line 1777 "lex.tab.c"
+#line 1788 "lex.tab.c"
     break;
 
   case 56:
-#line 263 "Lex_et_Yacc/lex.y"
+#line 274 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
                         printf("LOAD 01 %d\n", adrs1) ;
                         printf("LOAD 02 %d\n",adrs2) ;
                         printf("MUL 01 01 02\n") ;
                         printf("STORE %d 01\n", adrs1) ;
                         delTemporaire() ;}
-#line 1788 "lex.tab.c"
+#line 1799 "lex.tab.c"
     break;
 
   case 57:
-#line 269 "Lex_et_Yacc/lex.y"
+#line 280 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
                         printf("LOAD 01 %d\n", adrs1) ;
                         printf("LOAD 02 %d\n",adrs2) ;
                         printf("SUB 01 01 02\n") ;
                         printf("STORE %d 01\n", adrs1) ;
                         delTemporaire() ;}
-#line 1799 "lex.tab.c"
+#line 1810 "lex.tab.c"
     break;
 
   case 58:
-#line 275 "Lex_et_Yacc/lex.y"
+#line 286 "Lex_et_Yacc/lex.y"
                         {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
                         printf("LOAD 01 %d\n", adrs1) ;
                         printf("LOAD 02 %d\n",adrs2) ;
                         printf("ADD 01 01 02\n") ;
                         printf("STORE %d 01\n", adrs1) ;
                         delTemporaire() ;}
-#line 1810 "lex.tab.c"
+#line 1821 "lex.tab.c"
     break;
 
   case 59:
-#line 291 "Lex_et_Yacc/lex.y"
+#line 302 "Lex_et_Yacc/lex.y"
         { addProfondeur();
           (yyvsp[0].nb) = lastOffset();
           addVariable("!retadr'", 0, 0, getProfondeur()) ;
           addVariable("!retval'", 0, 0, getProfondeur()) ;
         }
-#line 1820 "lex.tab.c"
+#line 1831 "lex.tab.c"
     break;
 
   case 60:
-#line 297 "Lex_et_Yacc/lex.y"
+#line 308 "Lex_et_Yacc/lex.y"
         { delProfondeur();
           delVariable();
           printf("ADDBP %d\n", (yyvsp[-3].nb));
@@ -1829,11 +1840,11 @@ yyreduce:
           addTemporaire();
           printf("COP %d %d\n", lastOffset(), lastOffset() + 1);
         }
-#line 1833 "lex.tab.c"
+#line 1844 "lex.tab.c"
     break;
 
 
-#line 1837 "lex.tab.c"
+#line 1848 "lex.tab.c"
 
       default: break;
     }
@@ -2065,7 +2076,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 315 "Lex_et_Yacc/lex.y"
+#line 326 "Lex_et_Yacc/lex.y"
 
 
 void yyerror(const char *msg) {

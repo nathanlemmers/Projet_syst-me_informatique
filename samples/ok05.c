@@ -1,7 +1,13 @@
-void main(void) {
-  int a = 5 ;
-  int b = 7 ;
-  int c = a + b ;
+int main(void) {
+int a = 0 ;
+int c;
+  if (a==0) {
+    c = 7 ;
+  }
+  else {
+    c = 1;
+  }
+  return c ;
 }
 
 

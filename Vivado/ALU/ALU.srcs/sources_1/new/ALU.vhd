@@ -37,7 +37,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity ALU is
     Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
            B : in STD_LOGIC_VECTOR (7 downto 0);
-           Ctrl_Alu : in STD_LOGIC_VECTOR (2 downto 0);
+           Ctrl_Alu : in STD_LOGIC_VECTOR (3 downto 0);
            O : out STD_LOGIC;
            Z : out STD_LOGIC;
            C : out STD_LOGIC;
@@ -81,6 +81,25 @@ process (A,B,Ctrl_Alu, P)
         else 
             O <= '0' ;
         end if ;
+     elsif (Ctrl_Alu = x"9") then --LT
+        if (A<B) then
+            P<=x"0001" ;
+        else 
+            P<=x"0000" ;
+        end if ; 
+     elsif (Ctrl_Alu = x"a") then --GT
+        if (A>B) then
+            P<=x"0001" ;
+        else 
+            P<=x"0000" ;
+        end if ; 
+     elsif (Ctrl_Alu = x"b") then --EQ
+        if (A=B) then
+            P<=x"0001" ;
+        else 
+            P<=x"0000" ;
+        end if ; 
+     
     else 
         P <= x"0000" ;
         C <= '0' ;
