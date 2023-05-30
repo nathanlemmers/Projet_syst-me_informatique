@@ -1,9 +1,7 @@
 void main(void) {
-  int a = fonction(a) ;
+  int a = 5 ;
+  int b = 7 ;
+  int c = a + b ;
 }
 
-int fonction(int a) {
-  int b = 6 ;
-  return b ;
-}
 

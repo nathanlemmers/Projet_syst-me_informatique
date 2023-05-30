@@ -20,4 +20,4 @@ clean:
 	rm lex lex.tab.c lex.yy.c lex.tab.h lex.output
 
 test: all_lex
-	cat samples/ok05.c | ./lex
+	cat samples/ok05.c | ./lex > test.S

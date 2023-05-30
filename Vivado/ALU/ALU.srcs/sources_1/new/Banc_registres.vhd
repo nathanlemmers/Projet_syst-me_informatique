@@ -57,12 +57,13 @@ begin
         else 
             if (W='1') then
                 P(to_integer(unsigned(aW))) <= DATA ;
-            end if ;        
+            end if ; 
+                    
          
         end if ; 
 
     end process ;
-    QA <= P(to_integer(unsigned(aA)));
-    QB <= P(to_integer(unsigned(aB))) ;
+QA <= P(to_integer(unsigned(aA)));
+QB <= P(to_integer(unsigned(aB)));  
     
 end Behavioral;

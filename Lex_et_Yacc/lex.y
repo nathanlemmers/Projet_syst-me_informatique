@@ -66,7 +66,7 @@ total :
     tID { printf(":%s\n", $3) ; } tLPAR arguments tRPAR tLBRACE structure retour tRBRACE {printf("RET\n") ; delProfondeur() ; delVariable() ;}
 ; 
 
-retour : tRETURN calcul tSEMI { printf("COP 0, %d\n", lastOffset()) ; 
+retour : tRETURN calcul tSEMI { printf("LOAD 00, %d\n", lastOffset()) ; 
                                 delTemporaire();
                                 initialiser("!retval") ;} 
 ;
@@ -211,7 +211,8 @@ action : newVariable tSEMI //{printf("Int declaration\n") ;}
 newVariable : tINT valeur
     |tINT valeur tASSIGN calcul {int adrs2 = lastOffset() ;
                                 int adrs1 = adrs2-1 ;
-                                printf("COP %d, %d\n", adrs1, adrs2) ;
+                                printf("LOAD 00, %d\n", adrs2) ;
+                                printf("STORE %d, 00\n", adrs1) ;
                                 init(adrs1) ;
                                 delTemporaire() ;}
 ;
@@ -222,7 +223,8 @@ valeur : tID {addVariable($1, 0, 0, getProfondeur()) ;}
 assignation : tID tASSIGN calcul    {initialiser($1) ;
                                     int adrs2 = lastOffset() ;
                                     int adrs1 = findOffset($1) ;
-                                    printf("COP %d, %d\n", adrs1, adrs2) ;
+                                    printf("LOAD 00, %d\n", adrs2) ;
+                                    printf("STORE %d, 00\n", adrs1) ;
                                     delTemporaire() ;}
 ;
 
@@ -246,23 +248,35 @@ afficher :
 calcul : tID {int adrs = findOffset($1) ;
             addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("COP %d, %d\n", adrsTempo, adrs);}
+            printf("LOAD 01, %d\n", adrs);
+            printf("STORE %d, 01\n", adrsTempo);}
     |tNB {int adrs = atoi($1) ;
           addTemporaire() ;
             int adrsTempo = lastOffset() ;
-            printf("PUT %d, #%d\n", adrsTempo, adrs);}
+            printf("PUT 01, %d\n", adrs);
+            printf("STORE %d, 01\n", adrsTempo) ;}
     | fonction
     |calcul tDIV calcul {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
+
                         printf("DIV %d, %d\n", adrs1, adrs2) ;
                         delTemporaire() ;}
     |calcul tMUL calcul {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
-                        printf("MUL %d, %d\n", adrs1, adrs2) ;
+                        printf("LOAD 01, %d\n", adrs1) ;
+                        printf("LOAD 02, %d\n",adrs2) ;
+                        printf("MUL 01, 01, 02\n") ;
+                        printf("STORE %d, 01\n", adrs1) ;
                         delTemporaire() ;}
     |calcul tSUB calcul {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
-                        printf("SUB %d, %d\n", adrs1, adrs2) ;
+                        printf("LOAD 01, %d\n", adrs1) ;
+                        printf("LOAD 02, %d\n",adrs2) ;
+                        printf("SUB 01, 01, 02\n") ;
+                        printf("STORE %d, 01\n", adrs1) ;
                         delTemporaire() ;}
     |calcul tADD calcul {int adrs2 = lastOffset(); int adrs1 = adrs2-1 ;
-                        printf("ADD %d, %d\n", adrs1, adrs2) ;
+                        printf("LOAD 01, %d\n", adrs1) ;
+                        printf("LOAD 02, %d\n",adrs2) ;
+                        printf("ADD 01, 01, 02\n") ;
+                        printf("STORE %d, 01\n", adrs1) ;
                         delTemporaire() ;}
 ; 
 
@@ -307,5 +321,6 @@ void yyerror(const char *msg) {
 
 int main(void) {
   //yydebug = 1;
-  yyparse();
+    yyparse();
+
 }

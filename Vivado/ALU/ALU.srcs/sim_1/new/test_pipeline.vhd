@@ -67,7 +67,7 @@ Clock_process: process
         wait for Clock_period/2 ;
      end process ;
      
-     
+RSt <= '0' after 0ns, '1' after 15ns ; 
      
 
 

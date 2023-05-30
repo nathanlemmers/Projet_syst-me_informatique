@@ -40,16 +40,16 @@ end memoire_instruction;
 architecture Behavioral of memoire_instruction is
 
 type mem is array (0 to 255) of std_logic_vector (31 downto 0) ;
-signal M : mem := (x"06010100", x"06020300",x"00000000",x"00000000",x"00000000", x"01030102", others => (others => '0')) ;
+signal M : mem := (x"06070100", x"06060100", x"01010706", x"05020100", x"08010200", others => (others => '0')) ;
 
 begin
-process
-    begin   
-        wait until CLK'event and CLK='1' ;
+--process
+--    begin   
+--        wait until CLK'event and CLK='1' ;
         S <= M(to_integer(unsigned(a))) ;
         
         
-end process ;
+--end process ;
 
 
 
